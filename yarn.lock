@@ -2001,6 +2001,16 @@ vite@^1.0.0-rc.1:
     vue "^3.0.0-rc.5"
     ws "^7.2.3"
 
+vue-property-decorator@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.npm.taobao.org/vue-property-decorator/download/vue-property-decorator-9.0.0.tgz#0a5f6d47d33ca62a8876108ccfa65c2c4fb7325a"
+  integrity sha1-Cl9tR9M8piqIdhCMz6ZcLE+3Mlo=
+
+vue-router@4.0.0-beta.7:
+  version "4.0.0-beta.7"
+  resolved "https://registry.npm.taobao.org/vue-router/download/vue-router-4.0.0-beta.7.tgz?cache=0&sync_timestamp=1597843300670&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-router%2Fdownload%2Fvue-router-4.0.0-beta.7.tgz#afd8469c8f2aa86a2c785c08dfb954223f86581f"
+  integrity sha1-r9hGnI8qqGoseFwI37lUIj+GWB8=
+
 vue@^3.0.0-rc.1, vue@^3.0.0-rc.5:
   version "3.0.0-rc.6"
   resolved "https://registry.npm.taobao.org/vue/download/vue-3.0.0-rc.6.tgz?cache=0&sync_timestamp=1597929201957&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue%2Fdownload%2Fvue-3.0.0-rc.6.tgz#856baa7c5701e9f960b7831f8683232eb6a687d6"
