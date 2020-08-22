@@ -3,18 +3,17 @@
     <Topnav />
     <div class="content">
       <aside v-if="asideVisible">
-        <h2>列表</h2>
         <ol>
-          <li>
+          <li :class="{selected:checked==='switch'}" @click="select('switch')">
             <router-link to="/doc/switch">Switch组件</router-link>
           </li>
-          <li>
+          <li :class="{selected:checked==='button'}" @click="select('button')">
             <router-link to="/doc/button">Button</router-link>
           </li>
-          <li>
+          <li :class="{selected:checked==='dialog'}" @click="select('dialog')">
             <router-link to="/doc/dialog">Dialog</router-link>
           </li>
-          <li>
+          <li :class="{selected:checked==='tabs'}" @click="select('tabs')">
             <router-link to="/doc/tabs">Tabs</router-link>
           </li>
         </ol>
@@ -28,12 +27,17 @@
 
 <script lang='ts'>
 import Topnav from "../components/Topnav.vue";
-import { inject, Ref } from "vue";
+import { inject, Ref, ref } from "vue";
+
 export default {
   components: { Topnav },
   setup() {
     const asideVisible = inject<Ref<boolean>>("asideVisible");
-    return { asideVisible };
+    const checked = ref("");
+    const select = (string) => {
+      checked.value = string;
+    };
+    return { asideVisible, checked, select };
   },
 };
 </script>
@@ -44,19 +48,24 @@ aside {
   position: absolute;
   bottom: 0;
   top: 52.8px;
-  background: royalblue;
+  background: #f5f5f5;
   width: 200px;
   padding: 28px;
   > ol {
     > li {
       padding: 4px 16px;
+      margin: 12px 0;
       &:hover {
-        color: orange;
-        border-left: 2px solid red;
+        color: royalblue;
+        border-left: 2px solid royalblue;
         font-weight: 700;
+        padding: 4px 14px;
       }
-      & .selected {
-        border-left: 4px solid yellow;
+      &.selected {
+        border-left: 4px solid royalblue;
+        color: royalblue;
+        font-weight: 700;
+        padding: 4px 12px;
       }
     }
   }
@@ -67,7 +76,7 @@ main {
   bottom: 0;
   left: 200px;
   overflow: auto;
-  background: pink;
+  background: white;
   right: 0;
   padding: 28px;
   @media (max-width: 500px) {
