@@ -6,7 +6,7 @@
         <h2>列表</h2>
         <ol>
           <li>
-            <router-link to="/doc/">1</router-link>
+            <router-link to="/doc/switch">1</router-link>
           </li>
           <li>
             <router-link to="/doc/">2</router-link>
@@ -19,7 +19,9 @@
           </li>
         </ol>
       </aside>
-      <main>主内容</main>
+      <main>
+        <router-view />
+      </main>
     </div>
   </div>
 </template>
@@ -37,4 +39,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+aside {
+  background: royalblue;
+  width: 150px;
+  padding: 16px;
+  > ol {
+    > li {
+      padding: 4px 0;
+    }
+  }
+}
 </style>
