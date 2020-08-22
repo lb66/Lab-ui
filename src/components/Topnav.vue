@@ -1,7 +1,9 @@
 <template>
   <div class="topnav">
     <span class="toggleAside" @click="toggleMenu"></span>
-    <div class="logo">logo</div>
+    <div class="logo">
+      <router-link to="/">logo</router-link>
+    </div>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
@@ -26,7 +28,7 @@ export default {
 .topnav {
   background: orange;
   display: flex;
-  padding: 16px;
+  padding: 16px 44px;
   > .logo {
     max-width: 6em;
     margin-right: auto;

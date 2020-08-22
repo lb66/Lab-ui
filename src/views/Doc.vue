@@ -6,16 +6,16 @@
         <h2>列表</h2>
         <ol>
           <li>
-            <router-link to="/doc/switch">1</router-link>
+            <router-link to="/doc/switch">Switch组件</router-link>
           </li>
           <li>
-            <router-link to="/doc/">2</router-link>
+            <router-link to="/doc/button">Button</router-link>
           </li>
           <li>
-            <router-link to="/doc/">3</router-link>
+            <router-link to="/doc/dialog">Dialog</router-link>
           </li>
           <li>
-            <router-link to="/doc/">4</router-link>
+            <router-link to="/doc/tabs">Tabs</router-link>
           </li>
         </ol>
       </aside>
@@ -40,13 +40,38 @@ export default {
 
 <style lang="scss" scoped>
 aside {
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  top: 52.8px;
   background: royalblue;
-  width: 150px;
-  padding: 16px;
+  width: 200px;
+  padding: 28px;
   > ol {
     > li {
-      padding: 4px 0;
+      padding: 4px 16px;
+      &:hover {
+        color: orange;
+        border-left: 2px solid red;
+        font-weight: 700;
+      }
+      & .selected {
+        border-left: 4px solid yellow;
+      }
     }
+  }
+}
+main {
+  position: absolute;
+  top: 52.8px;
+  bottom: 0;
+  left: 200px;
+  overflow: auto;
+  background: pink;
+  right: 0;
+  padding: 28px;
+  @media (max-width: 500px) {
+    left: 0;
   }
 }
 </style>
