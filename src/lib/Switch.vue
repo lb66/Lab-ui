@@ -2,7 +2,6 @@
   <button :class="{checked:value}" @click="toggle">
     <span></span>
   </button>
-  <div>{{value}}</div>
 </template>
 
 <script lang='ts'>
@@ -21,34 +20,45 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$h: 22px;
-$h2: $h - 4px;
 button {
-  &:focus {
-    outline: none;
-  }
-  height: $h;
-  width: $h * 2;
-  border: none;
-  background: grey;
-  border-radius: $h/2;
+  outline: none;
   position: relative;
+  height: 22px;
+  width: 44px;
+  border: none;
+  background: #cccccc;
+  border-radius: 22px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: 0.4s;
   cursor: pointer;
   > span {
     position: absolute;
-    top: 2px;
-    left: 2px;
-    height: $h2;
-    width: $h2;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
     background: white;
-    border-radius: $h2/2;
-    transition: left 0.3s;
+    border-radius: 22px;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.4s;
+  }
+  &:active {
+    > span {
+      width: 26px;
+    }
   }
 }
 button.checked {
-  background: royalblue;
+  background: #2d8cf0;
   > span {
-    left: calc(100% - #{$h2} - 2px);
+    left: 22px;
+  }
+  &:active {
+    > span {
+      width: 26px;
+      margin-left: -4px;
+    }
   }
 }
 </style>
