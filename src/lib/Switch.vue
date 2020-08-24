@@ -1,11 +1,11 @@
 <template>
-  <button :class="{checked:value}" @click="toggle">
+  <button class="ui-switch" :class="{'ui-checked':value}" @click="toggle">
     <span></span>
   </button>
 </template>
 
 <script lang='ts'>
-import { ref } from "vue";
+import "./ui.scss";
 export default {
   props: {
     value: Boolean,
@@ -19,8 +19,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-button {
+<style lang="scss" >
+.ui-switch {
   outline: none;
   position: relative;
   height: 22px;
@@ -49,7 +49,7 @@ button {
     }
   }
 }
-button.checked {
+button.ui-checked {
   background: #2d8cf0;
   > span {
     left: 22px;

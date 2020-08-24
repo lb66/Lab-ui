@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Switch</h1>
+    <h1>Switch开关</h1>
     <Switch v-model:value="value" />
   </div>
 </template>

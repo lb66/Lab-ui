@@ -5,10 +5,10 @@
       <aside v-if="asideVisible">
         <ol>
           <li :class="{selected:checked==='switch'}" @click="select('switch')">
-            <router-link to="/doc/switch">Switch组件</router-link>
+            <router-link to="/doc/switch">Switch 开关</router-link>
           </li>
           <li :class="{selected:checked==='button'}" @click="select('button')">
-            <router-link to="/doc/button">Button</router-link>
+            <router-link to="/doc/button">Button 按钮</router-link>
           </li>
           <li :class="{selected:checked==='dialog'}" @click="select('dialog')">
             <router-link to="/doc/dialog">Dialog</router-link>
@@ -44,10 +44,10 @@ export default {
 
 <style lang="scss" scoped>
 aside {
-  z-index: 10;
+  z-index: -1;
   position: absolute;
   bottom: 0;
-  top: 52.8px;
+  top: 50px;
   background: #f5f5f5;
   width: 200px;
   padding: 28px;
@@ -71,6 +71,7 @@ aside {
   }
 }
 main {
+  z-index: -2;
   position: absolute;
   top: 52.8px;
   bottom: 0;
