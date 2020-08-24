@@ -1,5 +1,5 @@
 <template>
-  <button class="ui-button" :class="classes">
+  <button class="ui-button" :class="classes" @click="toggle">
     <span v-if="loading" class="loadingSymbol"></span>
     <slot />
   </button>
@@ -7,7 +7,7 @@
 
 <script lang='ts'>
 import "./ui.scss";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 export default {
   props: {
     theme: { type: String, default: "default" },
@@ -15,8 +15,9 @@ export default {
     level: String,
     loading: { type: Boolean, default: false },
   },
-  setup(props) {
+  setup(props, context) {
     const { theme, size, level } = props;
+
     const classes = computed(() => {
       return {
         [`theme-${theme}`]: theme,
@@ -24,7 +25,10 @@ export default {
         [`level-${level}`]: level,
       };
     });
-    return { classes };
+    const toggle = () => {
+      context.emit("update:loading", true);
+    };
+    return { classes, toggle };
   },
 };
 </script>
@@ -39,11 +43,13 @@ export default {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  vertical-align: middle;
   white-space: nowrap;
   border-radius: 4px;
   border: 1px solid #d9d9d9;
   color: inherit;
   background: white;
+
   &.theme-default {
     &:hover,
     :focus {
@@ -100,6 +106,7 @@ export default {
       }
     }
   }
+
   &.theme-primary {
     color: white;
     background: #2d8cf0;
@@ -115,6 +122,7 @@ export default {
       border-color: white white white transparent;
     }
   }
+
   &.theme-text {
     border-color: transparent;
     box-shadow: none;
@@ -177,8 +185,8 @@ export default {
     width: 14px;
     height: 14px;
     display: inline-block;
-    margin-right: 6px;
-    border-radius: 8px;
+    margin-right: 5px;
+    border-radius: 7px;
     border-color: #2d8cf0 #2d8cf0 #2d8cf0 transparent;
     border-style: solid;
     border-width: 2px;

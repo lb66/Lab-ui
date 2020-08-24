@@ -39,18 +39,29 @@
     </div>
     <h2>---</h2>
     <div>
-      <Button loading="true">Loading</Button>
-      <Button theme="primary" loading="true">Loading</Button>
+      <Button loading>Loading</Button>
+      <Button v-model:loading="loading1">
+        <span v-if="!loading1">Click Me</span>
+        <span v-else>Loading</span>
+      </Button>
+      <Button theme="primary" v-model:loading="loading2">
+        <span v-if="!loading2">Click Me</span>
+        <span v-else>Loading</span>
+      </Button>
     </div>
   </div>
 </template>
 
 <script>
 import Button from "../lib/Button.vue";
+import { ref } from "vue";
 export default {
   components: { Button },
-
-  setup() {},
+  setup() {
+    const loading1 = ref(false);
+    const loading2 = ref(false);
+    return { loading1, loading2 };
+  },
 };
 </script>
 
