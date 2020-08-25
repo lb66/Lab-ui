@@ -1,6 +1,9 @@
 <template>
   <button class="ui-button" :class="classes" @click="toggle">
     <span v-if="loading" class="loadingSymbol"></span>
+    <svg v-if="icon" class="icon" aria-hidden="true">
+      <use :xlink:href="`#icon-${icon}`" />
+    </svg>
     <slot />
   </button>
 </template>
@@ -14,15 +17,17 @@ export default {
     size: String,
     level: String,
     loading: { type: Boolean, default: false },
+    icon: String,
+    shape: String,
   },
   setup(props, context) {
-    const { theme, size, level } = props;
-
+    const { theme, size, level, shape } = props;
     const classes = computed(() => {
       return {
         [`theme-${theme}`]: theme,
         [`size-${size}`]: size,
         [`level-${level}`]: level,
+        [`shape-${shape}`]: shape,
       };
     });
     const toggle = () => {
@@ -34,6 +39,13 @@ export default {
 </script>
 
 <style lang="scss">
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 .ui-button {
   cursor: pointer;
   outline: none;
@@ -51,14 +63,14 @@ export default {
   background: white;
 
   &.theme-default {
-    &:hover,
-    :focus {
+    &:hover {
       color: #2d8cf0;
       border-color: #2d8cf0;
     }
     &:active {
       color: darken(#2d8cf0, 10%);
       border-color: darken(#2d8cf0, 10%);
+      background: darken(white, 1%);
     }
     &[disabled] {
       cursor: not-allowed;
@@ -69,12 +81,38 @@ export default {
         border-color: #f5f5f5;
       }
     }
+    &.shape-circle2 {
+      border-radius: 20px;
+      height: 40px;
+      width: 40px;
+      padding: 0;
+      &:hover {
+        background: darken(white, 3%);
+        border-color: #d9d9d9;
+      }
+      &:active {
+        background: darken(white, 6%);
+        border-color: #d9d9d9;
+      }
+    }
+    &.shape-circle1 {
+      border-radius: 20px;
+      height: 40px;
+      width: 40px;
+      padding: 0;
+      border-color: transparent;
+      &:hover {
+        background: darken(white, 3%);
+      }
+      &:active {
+        background: darken(white, 6%);
+      }
+    }
     &.level-success {
       color: white;
       background: #19be6b;
       border-color: transparent;
-      &:hover,
-      :focus {
+      &:hover {
         background: lighten(#19be6b, 5%);
       }
       &:active {
@@ -85,8 +123,7 @@ export default {
       color: white;
       background: #ff5252;
       border-color: transparent;
-      &:hover,
-      :focus {
+      &:hover {
         background: lighten(#ff5252, 5%);
       }
       &:active {
@@ -97,8 +134,7 @@ export default {
       color: white;
       background: #ff9900;
       border-color: transparent;
-      &:hover,
-      :focus {
+      &:hover {
         background: lighten(#ff9900, 5%);
       }
       &:active {
@@ -111,8 +147,7 @@ export default {
     color: white;
     background: #2d8cf0;
     border-color: transparent;
-    &:hover,
-    :focus {
+    &:hover {
       background: lighten(#2d8cf0, 5%);
     }
     &:active {
@@ -125,10 +160,7 @@ export default {
 
   &.theme-text {
     border-color: transparent;
-    box-shadow: none;
-    color: inherit;
-    &:hover,
-    :focus {
+    &:hover {
       color: #2d8cf0;
       background: darken(white, 5%);
     }
@@ -137,8 +169,7 @@ export default {
     }
     &.level-success {
       color: #19be6b;
-      &:hover,
-      :focus {
+      &:hover {
         color: lighten(#19be6b, 5%);
       }
       &:active {
@@ -147,8 +178,7 @@ export default {
     }
     &.level-error {
       color: #ff5252;
-      &:hover,
-      :focus {
+      &:hover {
         color: lighten(#ff5252, 5%);
       }
       &:active {
@@ -157,8 +187,7 @@ export default {
     }
     &.level-warning {
       color: #ff9900;
-      &:hover,
-      :focus {
+      &:hover {
         color: lighten(#ff9900, 5%);
       }
       &:active {

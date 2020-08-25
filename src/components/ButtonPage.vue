@@ -26,10 +26,10 @@
     <h2>---</h2>
     <div>
       <Button level="success">Success</Button>
-      <Button theme="text" level="success">Success</Button>
       <Button level="warning">Warning</Button>
-      <Button theme="text" level="warning">Warning</Button>
       <Button level="error">Error</Button>
+      <Button theme="text" level="success">Success</Button>
+      <Button theme="text" level="warning">Warning</Button>
       <Button theme="text" level="error">Error</Button>
     </div>
     <h2>---</h2>
@@ -49,6 +49,10 @@
         <span v-else>Loading</span>
       </Button>
     </div>
+    <h2>---</h2>
+    <Button icon="shoucang" shape="circle1"></Button>
+    <Button icon="shoucang" shape="circle2"></Button>
+    <Button icon="shoucang">Like</Button>
   </div>
 </template>
 
@@ -74,5 +78,12 @@ h1 {
 }
 Button {
   margin: 10px;
+}
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 </style>

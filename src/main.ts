@@ -5,4 +5,6 @@ import { router } from './router'
 
 
 createApp(App).use(router).mount('#app')
+var body = document.body;
+body.addEventListener('touchstart', function () { });
 

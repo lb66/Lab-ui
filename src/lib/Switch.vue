@@ -1,6 +1,6 @@
 <template>
   <button class="ui-switch" :class="{'ui-checked':value}" @click="toggle">
-    <span></span>
+    <span :class="theme"></span>
   </button>
 </template>
 
@@ -8,6 +8,7 @@
 import "./ui.scss";
 export default {
   props: {
+    theme: { type: String, default: "a" },
     value: Boolean,
   },
   setup(props, context) {
@@ -32,6 +33,12 @@ export default {
   transition: 0.4s;
   cursor: pointer;
   > span {
+    &.a {
+      transform: scale(1.1);
+    }
+    &.b {
+      transform: scale(0.75);
+    }
     position: absolute;
     top: 0;
     left: 0;
@@ -39,7 +46,6 @@ export default {
     width: 22px;
     background: white;
     border-radius: 22px;
-    transform: scale(1.1);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: 0.4s;
   }
