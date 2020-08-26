@@ -4,16 +4,19 @@
     <div class="content">
       <aside v-if="asideVisible">
         <ol>
-          <li :class="{selected:checked==='switch'}" @click="select('switch')">
+          <li :class="{selected:checked==='/doc/switch'}" @click="select('switch')">
             <router-link to="/doc/switch">Switch 开关</router-link>
           </li>
-          <li :class="{selected:checked==='button'}" @click="select('button')">
+          <li :class="{selected:checked==='/doc/button'}" @click="select('button')">
             <router-link to="/doc/button">Button 按钮</router-link>
           </li>
-          <li :class="{selected:checked==='dialog'}" @click="select('dialog')">
+          <li :class="{selected:checked==='/doc/input'}" @click="select('input')">
+            <router-link to="/doc/input">Input 输入框</router-link>
+          </li>
+          <li :class="{selected:checked==='/doc/dialog'}" @click="select('dialog')">
             <router-link to="/doc/dialog">Dialog</router-link>
           </li>
-          <li :class="{selected:checked==='tabs'}" @click="select('tabs')">
+          <li :class="{selected:checked==='/doc/tabs'}" @click="select('tabs')">
             <router-link to="/doc/tabs">Tabs</router-link>
           </li>
         </ol>
@@ -27,15 +30,17 @@
 
 <script lang='ts'>
 import Topnav from "../components/Topnav.vue";
+import { useRouter } from "vue-router";
 import { inject, Ref, ref } from "vue";
 
 export default {
   components: { Topnav },
   setup() {
+    const path = useRouter().currentRoute.value.path; //当前路径
     const asideVisible = inject<Ref<boolean>>("asideVisible");
-    const checked = ref("");
+    const checked = ref(path);
     const select = (string) => {
-      checked.value = string;
+      checked.value = "/doc/" + string;
     };
     return { asideVisible, checked, select };
   },
@@ -58,7 +63,6 @@ aside {
       &:hover {
         color: royalblue;
         border-left: 2px solid royalblue;
-        font-weight: 700;
         padding: 4px 14px;
       }
       &.selected {

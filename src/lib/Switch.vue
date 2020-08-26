@@ -30,7 +30,7 @@ export default {
   background: #cccccc;
   border-radius: 22px;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  transition: 0.4s;
+  transition: 0.3s;
   cursor: pointer;
   > span {
     &.a {
@@ -47,7 +47,7 @@ export default {
     background: white;
     border-radius: 22px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: 0.4s;
+    transition: 0.3s;
   }
   &:active {
     > span {

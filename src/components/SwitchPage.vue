@@ -1,9 +1,10 @@
 <template>
   <div>
     <h1>Switch开关</h1>
-    <Switch v-model:value="value1" />
-    <h2>---</h2>
-    <Switch v-model:value="value2" theme="b" />
+    <Switch v-model:value="switch1" />
+    <br />
+    <br />
+    <Switch v-model:value="switch2" theme="b" />
   </div>
 </template>
 
@@ -13,9 +14,9 @@ import { ref } from "vue";
 export default {
   components: { Switch },
   setup() {
-    const value1 = ref(false);
-    const value2 = ref(false);
-    return { value1, value2 };
+    const switch1 = ref(false); //开关初始状态
+    const switch2 = ref(true);
+    return { switch1, switch2 };
   },
 };
 </script>

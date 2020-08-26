@@ -1,7 +1,7 @@
 <template>
   <button class="ui-button" :class="classes" @click="toggle">
     <span v-if="loading" class="loadingSymbol"></span>
-    <svg v-if="icon" class="icon" aria-hidden="true">
+    <svg v-if="icon" class="ui-icon" aria-hidden="true">
       <use :xlink:href="`#icon-${icon}`" />
     </svg>
     <slot />
@@ -39,14 +39,18 @@ export default {
 </script>
 
 <style lang="scss">
-.icon {
-  width: 1.5em;
-  height: 1.5em;
-  vertical-align: -0.15em;
-  fill: currentColor;
-  overflow: hidden;
-}
 .ui-button {
+  // 移动端禁用长按选中文本功能
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  > .ui-icon {
+    width: 1.5em;
+    height: 1.5em;
+  }
   cursor: pointer;
   outline: none;
   height: 36px;
@@ -61,7 +65,6 @@ export default {
   border: 1px solid #d9d9d9;
   color: inherit;
   background: white;
-
   &.theme-default {
     &:hover {
       color: #2d8cf0;
@@ -75,10 +78,10 @@ export default {
     &[disabled] {
       cursor: not-allowed;
       color: #a0a0a0;
-      background: #f5f5f5;
       border-color: #f5f5f5;
-      &:hover {
-        border-color: #f5f5f5;
+      > .ui-icon {
+        fill: currentColor !important;
+        color: grey;
       }
     }
     &.shape-circle2 {
@@ -146,7 +149,7 @@ export default {
   &.theme-primary {
     color: white;
     background: #2d8cf0;
-    border-color: transparent;
+    border-color: #2b85e4;
     &:hover {
       background: lighten(#2d8cf0, 5%);
     }
