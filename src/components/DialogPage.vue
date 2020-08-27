@@ -1,7 +1,7 @@
 <template>
   <h1>Dialog 对话框</h1>
   <Button @click="open">打开对话框</Button>
-  <Dialog v-model:visible="isVisible" :confirm="f1" :cancel="f2">
+  <Dialog v-model:visible="isVisible" :confirm="f1" :cancel="f2" word1="haha">
     <template v-slot:title>
       <strong>标题</strong>
     </template>
@@ -35,6 +35,8 @@ export default {
       showDialog({
         title: h("strong", {}, "标题"),
         content: "Hello World",
+        word1: "a",
+        word2: "b",
         closeOverlay: false,
         confirm() {
           console.log("confirm");

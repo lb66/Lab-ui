@@ -12,8 +12,8 @@
             <slot name="content" />
           </main>
           <footer>
-            <Button @click="cancel">取消</Button>
-            <Button @click="confirm" theme="primary">确定</Button>
+            <Button @click="cancel">{{word1}}</Button>
+            <Button @click="confirm" theme="primary">{{word2}}</Button>
           </footer>
         </div>
       </div>
@@ -32,12 +32,17 @@ export default {
     closeOverlay: { type: Boolean, default: true },
     confirm: Function,
     cancel: Function,
+    word1: { type: String, default: "取消" },
+    word2: { type: String, default: "确定" },
   },
   setup(props, context) {
     const close = () => {
       context.emit("update:visible", false);
     };
     const class1 = ref();
+
+    // const { word1, word2 } = props;
+
     const clickOverlay = () => {
       if (props.closeOverlay) {
         close();
@@ -57,7 +62,13 @@ export default {
       props.cancel?.();
       close();
     };
-    return { close, clickOverlay, class1, cancel, confirm };
+    return {
+      close,
+      clickOverlay,
+      class1,
+      cancel,
+      confirm,
+    };
   },
 };
 </script>

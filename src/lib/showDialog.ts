@@ -1,7 +1,7 @@
 import Dialog from "./Dialog.vue";
 import { createApp, h } from "vue";
 export const showDialog = (options) => {
-  const { title, content, confirm, cancel, closeOverlay } = options;
+  const { title, content, confirm, cancel, closeOverlay, word1, word2 } = options;
   const div = document.createElement("div");
   document.body.appendChild(div);
 
@@ -18,7 +18,7 @@ export const showDialog = (options) => {
               div.remove();
             }
           },
-          confirm, cancel, closeOverlay,
+          confirm, cancel, closeOverlay, word1, word2
         },
         {
           //放插槽属性
