@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Button按钮</h1>
+    <h1>Button 按钮</h1>
     <h2>---</h2>
 
     <Button>Default</Button>
@@ -84,12 +84,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  border: 1px solid #d4d6d8;
-  border-width: 0 0 1.5px 0;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-}
 Button {
   margin: 10px;
 }

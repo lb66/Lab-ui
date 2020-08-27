@@ -1,5 +1,5 @@
 <template>
-  <div class="ui-inputWrapper">
+  <div class="ui-input-wrapper">
     <input
       v-if="icon"
       class="ui-input inputWithIcon"
@@ -7,6 +7,7 @@
       :value="value"
       :placeholder="placeholder"
       :disabled="disabled"
+      :clearable="clearable"
     />
     <input
       v-else
@@ -15,33 +16,35 @@
       :value="value"
       :placeholder="placeholder"
       :disabled="disabled"
+      :clearable="clearable"
     />
     <svg v-if="icon" class="ui-icon" aria-hidden="true">
       <use :xlink:href="`#icon-${icon}`" />
+    </svg>
+    <svg v-if="clearable" class="ui-icon ui-clearable" aria-hidden="true">
+      <use xlink:href="#icon-cha" />
     </svg>
   </div>
 </template>
 
 <script lang='ts'>
 import "./ui.scss";
+
 export default {
+  // inheritAttrs: false,
   props: {
     value: String,
     placeholder: String,
     disabled: { type: Boolean, default: false },
+    clearable: { type: Boolean, default: false },
     icon: String,
   },
-  setup(props, context) {
-    const change = (string) => {
-      context.emit("input", string);
-    };
-    return { change };
-  },
+  setup(props, context) {},
 };
 </script>
 
 <style lang="scss">
-.ui-inputWrapper {
+.ui-input-wrapper {
   position: relative;
   > .ui-input {
     height: 32px;
@@ -49,7 +52,7 @@ export default {
     border-radius: 4px;
     padding: 0 8px;
     &.inputWithIcon {
-      padding: 0 8px 0 28px;
+      padding-left: 28px;
     }
     &:hover {
       border-color: #409eff;
@@ -71,6 +74,12 @@ export default {
     left: 8px;
     top: 50%;
     transform: translateY(-50%);
+    &.ui-clearable {
+      position: relative;
+      left: -22px;
+      top: 10px;
+      background: white;
+    }
   }
 }
 </style>

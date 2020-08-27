@@ -14,7 +14,7 @@
             <router-link to="/doc/input">Input 输入框</router-link>
           </li>
           <li :class="{selected:checked==='/doc/dialog'}" @click="select('dialog')">
-            <router-link to="/doc/dialog">Dialog</router-link>
+            <router-link to="/doc/dialog">Dialog 对话框</router-link>
           </li>
           <li :class="{selected:checked==='/doc/tabs'}" @click="select('tabs')">
             <router-link to="/doc/tabs">Tabs</router-link>

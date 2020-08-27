@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Switch开关</h1>
+    <h1>Switch 开关</h1>
     <Switch v-model:value="switch1" />
     <br />
     <br />
@@ -22,10 +22,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  border: 1px solid #d4d6d8;
-  border-width: 0 0 1.5px 0;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-}
 </style>
