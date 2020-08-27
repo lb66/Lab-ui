@@ -1,22 +1,23 @@
 <template>
   <template v-if="visible">
-    <div class="ui-dialog-overlay" @click="clickOverlay"></div>
-    <div class="ui-dialog-wrapper">
-      <div class="ui-dialog" :class="class1">
-        <header>
-          标题
-          <span class="ui-dialog-close" @click="close"></span>
-        </header>
-        <main>
-          <p>内容1</p>
-          <p>内容2</p>
-        </main>
-        <footer>
-          <Button @click="cancel">取消</Button>
-          <Button @click="confirm" theme="primary">确定</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="ui-dialog-overlay" @click="clickOverlay"></div>
+      <div class="ui-dialog-wrapper">
+        <div class="ui-dialog" :class="class1">
+          <header>
+            <slot name="title" />
+            <span class="ui-dialog-close" @click="close"></span>
+          </header>
+          <main>
+            <slot name="content" />
+          </main>
+          <footer>
+            <Button @click="cancel">取消</Button>
+            <Button @click="confirm" theme="primary">确定</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 
@@ -53,7 +54,7 @@ export default {
       }
     };
     const cancel = () => {
-      // context.emit("cancel");
+      props.cancel?.();
       close();
     };
     return { close, clickOverlay, class1, cancel, confirm };
