@@ -1,8 +1,7 @@
 <template>
   <h1>Dialog 对话框</h1>
-  <h2>---</h2>
   <Button @click="open">打开对话框</Button>
-  <Dialog :visible="isVisible"></Dialog>
+  <Dialog v-model:visible="isVisible" :closeOverlay="false" :confirm="f1" :cancel="f2"></Dialog>
 </template>
 
 <script lang='ts'>
@@ -16,7 +15,11 @@ export default {
     const open = () => {
       isVisible.value = true;
     };
-    return { isVisible, open };
+    const f1 = () => {
+      return false;
+    };
+    const f2 = () => {};
+    return { isVisible, open, f1, f2 };
   },
 };
 </script>

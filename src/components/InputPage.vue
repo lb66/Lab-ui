@@ -1,5 +1,5 @@
 <template>
-<h1>Input 输入框</h1>
+  <h1>Input 输入框</h1>
   <Input placeholder="请输入内容" />
   <Input value="Disabled" disabled />
   <Input placeholder="请输入内容" icon="search" />
