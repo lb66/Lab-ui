@@ -54,9 +54,8 @@ export default {
       }
     };
     const confirm = () => {
-      if (props.confirm && props.confirm() !== false) {
-        close();
-      }
+      props.confirm?.();
+      close();
     };
     const cancel = () => {
       props.cancel?.();

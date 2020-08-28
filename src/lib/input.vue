@@ -21,7 +21,7 @@
     <svg v-if="icon" class="ui-icon" aria-hidden="true">
       <use :xlink:href="`#icon-${icon}`" />
     </svg>
-    <svg v-if="clearable" class="ui-icon ui-clearable" aria-hidden="true">
+    <svg v-if="clearable&&value" class="ui-icon ui-clearable" aria-hidden="true" @click="clear">
       <use xlink:href="#icon-cha" />
     </svg>
   </div>
@@ -39,7 +39,12 @@ export default {
     clearable: { type: Boolean, default: false },
     icon: String,
   },
-  setup(props, context) {},
+  setup(props, context) {
+    const clear = () => {
+      context.emit("update:value", null);
+    };
+    return { clear };
+  },
 };
 </script>
 
@@ -77,7 +82,7 @@ export default {
     &.ui-clearable {
       position: relative;
       left: -22px;
-      top: 10px;
+      top: 9.5px;
       background: white;
     }
   }

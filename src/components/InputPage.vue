@@ -3,9 +3,9 @@
   <Input placeholder="请输入内容" />
   <Input value="Disabled" disabled />
   <Input placeholder="请输入内容" icon="search" />
-  <Input :value="text" @input="text = $event.target.value" />
-  :{{text}}
-  <Input placeholder="请输入内容" clearable />未完成
+  <Input :value="text1" @input="text1 = $event.target.value" />
+  :{{text1}}
+  <Input placeholder="请输入内容" clearable v-model:value="text2" @input="text2=$event.target.value" />
 </template>
 
 <script lang='ts'>
@@ -14,8 +14,9 @@ import { ref } from "vue";
 export default {
   components: { Input },
   setup() {
-    const text = ref("Hello");
-    return { text };
+    const text1 = ref("Hello");
+    const text2 = ref("清空内容");
+    return { text1, text2 };
   },
 };
 </script>

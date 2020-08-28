@@ -1,7 +1,7 @@
 <template>
   <h1>Dialog 对话框</h1>
   <Button @click="open">打开对话框</Button>
-  <Dialog v-model:visible="isVisible" :confirm="f1" :cancel="f2" word1="haha">
+  <Dialog v-model:visible="isVisible" :confirm="f1" :cancel="f2">
     <template v-slot:title>
       <strong>标题</strong>
     </template>
@@ -40,7 +40,6 @@ export default {
         closeOverlay: false,
         confirm() {
           console.log("confirm");
-          return false;
         },
         cancel() {
           console.log("cancel");
