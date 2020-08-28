@@ -22,7 +22,6 @@
 </template>
 
 <script lang='ts'>
-import "./ui.scss";
 import Button from "../lib/Button.vue";
 import { computed, ref } from "vue";
 export default {

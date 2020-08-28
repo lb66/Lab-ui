@@ -1,3 +1,4 @@
+import './lib/ui.scss'//添加此行
 import './index.scss'
 import { createApp } from 'vue'
 import App from './App.vue'

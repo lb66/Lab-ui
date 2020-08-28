@@ -16,6 +16,9 @@
           <li :class="{selected:checked==='/doc/dialog'}" @click="select('dialog')">
             <router-link to="/doc/dialog">Dialog 对话框</router-link>
           </li>
+          <li :class="{selected:checked==='/doc/grid'}" @click="select('grid')">
+            <router-link to="/doc/grid">Grid 栅格</router-link>
+          </li>
           <li :class="{selected:checked==='/doc/tabs'}" @click="select('tabs')">
             <router-link to="/doc/tabs">Tabs</router-link>
           </li>

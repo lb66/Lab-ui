@@ -9,7 +9,6 @@
 </template>
 
 <script lang='ts'>
-import "./ui.scss";
 import { computed, ref } from "vue";
 export default {
   props: {

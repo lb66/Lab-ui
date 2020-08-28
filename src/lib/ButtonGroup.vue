@@ -5,7 +5,6 @@
 </template>
 
 <script lang='ts'>
-import "./ui.scss";
 export default {};
 </script>
 

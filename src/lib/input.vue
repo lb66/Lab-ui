@@ -28,10 +28,7 @@
 </template>
 
 <script lang='ts'>
-import "./ui.scss";
-
 export default {
-  // inheritAttrs: false,
   props: {
     value: String,
     placeholder: String,
