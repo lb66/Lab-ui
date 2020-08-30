@@ -49,12 +49,11 @@ export default {
 
 <style lang="scss">
 .ui-col {
-  border: 1px solid green;
-  height: 50px;
+  border: 1px solid #9c9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  padding: 10px 0;
 
   @for $n from 1 through 24 {
     &.#{"ui-col-"}#{$n} {

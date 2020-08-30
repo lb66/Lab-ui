@@ -1,5 +1,5 @@
 <template>
-<div class="ui-row" :style="rowStyle">
+<div class="ui-row" :style="rowStyle" :class="rowClass">
   <slot />
 </div>
 </template>
@@ -12,22 +12,33 @@ import {
 export default {
   props: {
     gutter: [Number, String],
+    justify: String,
   },
   setup(props, context) {
+    const {
+      gutter,
+      justify
+    } = props;
     // onMounted(() => {
     //   怎么访问实例this？？
     //   this.$children.forEach((vm) => {
-    //     vm.gutter = props.gutter;
+    //     vm.gutter = gutter;
     //   });
     // });
     const rowStyle = computed(() => {
       return {
-        marginLeft: -props.gutter / 2 + "px",
-        marginRight: -props.gutter / 2 + "px",
+        marginLeft: -gutter / 2 + "px",
+        marginRight: -gutter / 2 + "px",
+      };
+    });
+    const rowClass = computed(() => {
+      return {
+        [`justify-${justify}`]: justify,
       };
     });
     return {
-      rowStyle
+      rowStyle,
+      rowClass,
     };
   },
 };
@@ -36,6 +47,26 @@ export default {
 <style lang="scss">
 .ui-row {
   display: flex;
+
   // flex-wrap: wrap;
+  &.justify-start {
+    justify-content: flex-start;
+  }
+
+  &.justify-end {
+    justify-content: flex-end;
+  }
+
+  &.justify-center {
+    justify-content: center;
+  }
+
+  &.justify-around {
+    justify-content: space-around;
+  }
+
+  &.justify-between {
+    justify-content: space-between;
+  }
 }
 </style>

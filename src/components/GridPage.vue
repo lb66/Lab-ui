@@ -21,6 +21,32 @@
     <Col gutter="20" span="8">8</Col>
     <Col gutter="20" span="6">6</Col>
   </Row>
+  <br />子元素向左排列
+  <Row justify="start">
+    <Col span="6">6</Col>
+    <Col span="6">6</Col>
+    <Col span="6">col-6</Col>
+  </Row>子元素向右排列
+  <Row justify="end">
+    <Col span="6">6</Col>
+    <Col span="6">6</Col>
+    <Col span="6">6</Col>
+  </Row>子元素居中排列
+  <Row justify="center">
+    <Col span="6">6</Col>
+    <Col span="6">6</Col>
+    <Col span="6">6</Col>
+  </Row>子元素等宽排列
+  <Row justify="between">
+    <Col span="6">6</Col>
+    <Col span="6">6</Col>
+    <Col span="6">6</Col>
+  </Row>子元素分散排列
+  <Row justify="around">
+    <Col span="6">6</Col>
+    <Col span="6">6</Col>
+    <Col span="6">6</Col>
+  </Row>
 </div>
 </template>
 
