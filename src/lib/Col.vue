@@ -1,38 +1,67 @@
 <template>
-  <div
-    class="ui-col"
-    :class="[`ui-col-${span}`,`ui-offset-${offset}`]"
-    :style="{paddingLeft: gutter/2+'px', paddingRight: gutter/2+'px'}"
-  >
-    <slot />
-  </div>
+<div class="ui-col" :class="colClass" :style="colStyle">
+  <slot />
+</div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
+import {
+  computed
+} from "vue";
 export default {
   props: {
     span: [Number, String],
     offset: [Number, String],
-    gutter: { type: [Number, String], default: 16 },
+    gutter: [Number, String],
   },
-  setup() {
-    const gutter = 16;
-    return { gutter };
+  setup(props, context) {
+    const {
+      span,
+      offset,
+      gutter
+    } = props;
+    const colClass = computed(() => {
+      return {
+        [`ui-col-${span}`]: span,
+        [`ui-offset-${offset}`]: offset,
+      };
+    });
+    const colStyle = computed(() => {
+      if (offset) {
+        return {
+          marginLeft: ((+offset / 24) * 100) % +(+gutter / 2 + "px"),
+          marginRight: +gutter / 2 + "px",
+        };
+      } else {
+        return {
+          marginLeft: +gutter / 2 + "px",
+          marginRight: +gutter / 2 + "px",
+        };
+      }
+    });
+    return {
+      colStyle,
+      colClass,
+    };
   },
 };
 </script>
 
 <style lang="scss">
 .ui-col {
-  height: 100px;
-  background: grey;
+  border: 1px solid green;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50%;
-  border: 1px solid red;
+
   @for $n from 1 through 24 {
     &.#{"ui-col-"}#{$n} {
       width: ($n / 24) * 100%;
     }
   }
+
   @for $n from 1 through 24 {
     &.#{"ui-offset-"}#{$n} {
       margin-left: ($n / 24) * 100%;

@@ -1,24 +1,34 @@
 <template>
-  <div class="ui-row" :style="{marginLeft: -gutter/2+'px', marginRight: -gutter/2+'px'}">
-    <slot />
-  </div>
+<div class="ui-row" :style="rowStyle">
+  <slot />
+</div>
 </template>
 
-<script lang='ts'>
-import { onMounted } from "vue";
+<script lang="ts">
+import {
+  onMounted,
+  computed
+} from "vue";
 export default {
   props: {
     gutter: [Number, String],
   },
-  setup() {
-    onMounted(() => {
-      console.log("row mounted");
-      console.log(this);
-      // console.log(this.$children);
-      // this.$children.forEach((vm) => {
-      //   vm.gutter = this.gutter;
-      // });
+  setup(props, context) {
+    // onMounted(() => {
+    //   怎么访问实例this？？
+    //   this.$children.forEach((vm) => {
+    //     vm.gutter = props.gutter;
+    //   });
+    // });
+    const rowStyle = computed(() => {
+      return {
+        marginLeft: -props.gutter / 2 + "px",
+        marginRight: -props.gutter / 2 + "px",
+      };
     });
+    return {
+      rowStyle
+    };
   },
 };
 </script>
@@ -26,5 +36,6 @@ export default {
 <style lang="scss">
 .ui-row {
   display: flex;
+  // flex-wrap: wrap;
 }
 </style>
