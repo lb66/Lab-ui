@@ -1,5 +1,7 @@
 <template>
-<div></div>
+  <div class="ui-header">
+    <solt />
+  </div>
 </template>
 
 <script>

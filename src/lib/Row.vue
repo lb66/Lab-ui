@@ -7,24 +7,20 @@
 <script lang="ts">
 import {
   onMounted,
-  computed
+  computed,
+  provide
 } from "vue";
 export default {
   props: {
     gutter: [Number, String],
     justify: String,
   },
-  setup(props, context) {
+  setup(props) {
     const {
       gutter,
       justify
     } = props;
-    // onMounted(() => {
-    //   怎么访问实例this？？
-    //   this.$children.forEach((vm) => {
-    //     vm.gutter = gutter;
-    //   });
-    // });
+    provide("gutter", gutter);
     const rowStyle = computed(() => {
       return {
         marginLeft: -gutter / 2 + "px",

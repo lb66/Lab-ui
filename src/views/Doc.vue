@@ -47,7 +47,7 @@ import {
 
 export default {
   components: {
-    Topnav
+    Topnav,
   },
   setup() {
     const path = useRouter().currentRoute.value.path; //当前路径
@@ -59,7 +59,7 @@ export default {
     return {
       asideVisible,
       checked,
-      select
+      select,
     };
   },
 };

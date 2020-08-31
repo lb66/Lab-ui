@@ -11,15 +11,15 @@
     <Col span="12" offset="4">12</Col>
   </Row>
   <br />
-  <Row gutter="20">
-    <Col gutter="20" span="14" class="col">14</Col>
-    <Col gutter="20" span="10">10</Col>
+  <Row :gutter="20">
+    <Col span="14" class="col">14</Col>
+    <Col span="10">10</Col>
   </Row>
   <br />
-  <Row gutter="20">
-    <Col gutter="20" span="6" offset="4">6</Col>
-    <Col gutter="20" span="8">8</Col>
-    <Col gutter="20" span="6">6</Col>
+  <Row :gutter="20">
+    <Col span="6" offset="4">6</Col>
+    <Col span="8">8</Col>
+    <Col span="6">6</Col>
   </Row>
   <br />子元素向左排列
   <Row justify="start">
@@ -66,5 +66,6 @@ export default {
   border: 1px solid red;
   background: #2d8cf0;
   color: white;
+  min-height: 100%;
 }
 </style>
