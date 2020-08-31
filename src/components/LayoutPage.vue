@@ -1,5 +1,12 @@
 <template>
-<div>x</div>
+  <Layout style="height: 100vh;">
+    <Sider class="demo">sider</Sider>
+    <Layout>
+      <Header class="demo">header</Header>
+      <Content class="demo">content</Content>
+      <Footer class="demo">footer</Footer>
+    </Layout>
+  </Layout>
 </template>
 
 <script>
@@ -20,4 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.demo {
+  min-height: 100px;
+}
 </style>

@@ -66,6 +66,5 @@ export default {
   border: 1px solid red;
   background: #2d8cf0;
   color: white;
-  min-height: 100%;
 }
 </style>
