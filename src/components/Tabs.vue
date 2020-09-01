@@ -1,5 +1,5 @@
 <template>
-  <div>xxx</div>
+  <div>toast</div>
 </template>
 
 <script>

@@ -1,12 +1,14 @@
 <template>
 <Teleport to="body" v-if="visible">
   <div class="ui-toast" :class="positionClass">
-    <div class="ui-toast-content">
-      <slot />
+    <div class="toast">
+      <div class="ui-toast-content">
+        <slot />
+      </div>
+      <svg class="ui-icon ui-toast-close" @click="closeToast" aria-hidden="true">
+        <use xlink:href="#icon-blueClose" />
+      </svg>
     </div>
-    <svg v-if="!autoClose" class="ui-icon ui-toast-close" @click="closeToast" aria-hidden="true">
-      <use xlink:href="#icon-blueClose" />
-    </svg>
   </div>
 </Teleport>
 </template>
@@ -68,31 +70,80 @@ export default {
 </script>
 
 <style lang="scss">
+@keyframes ui-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ui-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes ui-slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
 .ui-toast {
-  min-height: 40px;
-  line-height: 1.4;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  color: white;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.75);
-  border-radius: 4px;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
-  padding: 8px 16px;
+
+  >.toast {
+    line-height: 1.4;
+    min-height: 40px;
+    display: flex;
+    color: white;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+  }
 
   &.position-top {
     top: 3%;
+
+    .toast {
+      animation: ui-slide-down 0.3s;
+    }
   }
 
   &.position-bottom {
     bottom: 3%;
+
+    .toast {
+      animation: ui-slide-up 0.3s;
+    }
   }
 
   &.position-center {
     top: 50%;
     transform: translate(-50%, -50%);
+
+    .toast {
+      animation: ui-fade-in 0.3s;
+    }
   }
 
   &-content {
@@ -104,8 +155,9 @@ export default {
 
   &-close {
     padding-left: 16px;
-    width: 2em;
     height: 2em;
+    width: 2em;
+    cursor: pointer;
   }
 }
 </style>

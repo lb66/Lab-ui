@@ -85,10 +85,10 @@ export default {
 <style lang="scss">
 .ui-dialog {
   &-zoom {
-    animation: 0.1s zoom;
+    animation: 0.1s ui-zoom;
   }
 
-  @keyframes zoom {
+  @keyframes ui-zoom {
     0% {}
 
     50% {

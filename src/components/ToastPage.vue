@@ -1,18 +1,18 @@
 <template>
 <Button @click="open1">可自动关闭</Button>
-<Toast v-model:visible="isVisible1" autoClose :closeTime="1">xxxxxxxxxx</Toast>
+<Toast v-model:visible="isVisible1" autoClose :closeTime="1">这是一条会自动关闭的消息</Toast>
 <br />
 <br />
-<Button @click="open2">不自动关闭shang</Button>
-<Toast v-model:visible="isVisible2">xxxxccccccccccccccccccccccccxxxxxx</Toast>
+<Button @click="open2">自动关闭shang</Button>
+<Toast v-model:visible="isVisible2" autoClose>屏幕上方弹出的消息</Toast>
 <br />
 <br />
 <Button @click="open3">不自动关闭zhong</Button>
-<Toast v-model:visible="isVisible3" position="center">xxxxxxxxxx</Toast>
+<Toast v-model:visible="isVisible3" position="center">屏幕中间弹出的消息，多行文字示例点击关闭。</Toast>
 <br />
 <br />
-<Button @click="open4">不自动关闭xia</Button>
-<Toast v-model:visible="isVisible4" position="bottom">xsad卡深咖啡ad复活卡首付款xxxxxxxxx</Toast>
+<Button @click="open4">自动关闭xia</Button>
+<Toast v-model:visible="isVisible4" position="bottom" autoClose>屏幕下方弹出的消息</Toast>
 </template>
 
 <script lang="ts">
