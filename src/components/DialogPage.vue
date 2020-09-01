@@ -16,13 +16,16 @@
   <Button @click="openDialog">打开对话框</Button>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import Dialog from "../lib/Dialog.vue";
 import Button from "../lib/Button.vue";
 import { showDialog } from "../lib/showDialog";
 import { ref, h } from "vue";
 export default {
-  components: { Dialog, Button },
+  components: {
+    Dialog,
+    Button,
+  },
   setup() {
     const isVisible = ref(false);
     const open = () => {
@@ -46,7 +49,13 @@ export default {
         },
       });
     };
-    return { isVisible, open, f1, f2, openDialog };
+    return {
+      isVisible,
+      open,
+      f1,
+      f2,
+      openDialog,
+    };
   },
 };
 </script>

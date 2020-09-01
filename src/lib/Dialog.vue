@@ -1,47 +1,58 @@
 <template>
-  <template v-if="visible">
-    <Teleport to="body">
-      <div class="ui-dialog-overlay" @click="clickOverlay"></div>
-      <div class="ui-dialog-wrapper">
-        <div class="ui-dialog" :class="class1">
-          <header>
-            <slot name="title" />
-            <span class="ui-dialog-close" @click="close"></span>
-          </header>
-          <main>
-            <slot name="content" />
-          </main>
-          <footer>
-            <Button @click="cancel">{{word1}}</Button>
-            <Button @click="confirm" theme="primary">{{word2}}</Button>
-          </footer>
-        </div>
+<template v-if="visible">
+  <Teleport to="body">
+    <div class="ui-dialog-overlay" @click="clickOverlay"></div>
+    <div class="ui-dialog-wrapper">
+      <div class="ui-dialog" :class="class1">
+        <header>
+          <slot name="title" />
+          <span class="ui-dialog-close" @click="close"></span>
+        </header>
+        <main>
+          <slot name="content" />
+        </main>
+        <footer>
+          <Button @click="cancel">{{word1}}</Button>
+          <Button @click="confirm" theme="primary">{{word2}}</Button>
+        </footer>
       </div>
-    </Teleport>
-  </template>
+    </div>
+  </Teleport>
+</template>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import Button from "../lib/Button.vue";
-import { computed, ref } from "vue";
+import {
+  computed,
+  ref
+} from "vue";
 export default {
-  components: { Button },
+  components: {
+    Button,
+  },
   props: {
     visible: Boolean,
-    closeOverlay: { type: Boolean, default: true },
+    closeOverlay: {
+      type: Boolean,
+      default: true,
+    },
     confirm: Function,
     cancel: Function,
-    word1: { type: String, default: "取消" },
-    word2: { type: String, default: "确定" },
+    word1: {
+      type: String,
+      default: "取消",
+    },
+    word2: {
+      type: String,
+      default: "确定",
+    },
   },
   setup(props, context) {
     const close = () => {
       context.emit("update:visible", false);
     };
     const class1 = ref();
-
-    // const { word1, word2 } = props;
-
     const clickOverlay = () => {
       if (props.closeOverlay) {
         close();
@@ -76,21 +87,24 @@ export default {
   &-zoom {
     animation: 0.1s zoom;
   }
+
   @keyframes zoom {
-    0% {
-    }
+    0% {}
+
     50% {
       transform: scale(1.05);
     }
-    100% {
-    }
+
+    100% {}
   }
+
   background: white;
   border-radius: 4px;
   box-shadow: 0 0 3px fade-out(#000, 0.5);
   border-color: #d9d9d9;
   min-width: 18em;
   max-width: 90%;
+
   &-overlay {
     position: fixed;
     top: 0;
@@ -100,6 +114,7 @@ export default {
     background: fade_out(black, 0.5);
     z-index: 10;
   }
+
   &-wrapper {
     position: fixed;
     left: 50%;
@@ -107,7 +122,8 @@ export default {
     transform: translate(-50%, -50%);
     z-index: 11;
   }
-  > header {
+
+  >header {
     padding: 12px 16px;
     border-bottom: 1px solid #d9d9d9;
     display: flex;
@@ -115,23 +131,28 @@ export default {
     justify-content: space-between;
     font-size: 20px;
   }
-  > main {
+
+  >main {
     padding: 16px;
   }
-  > footer {
+
+  >footer {
     border-top: 1px solid #d9d9d9;
     padding: 12px 16px;
     text-align: right;
-    > Button {
+
+    >Button {
       margin-left: 10px;
     }
   }
+
   &-close {
     position: relative;
     display: inline-block;
     width: 16px;
     height: 16px;
     cursor: pointer;
+
     &::before,
     &::after {
       content: "";
@@ -142,9 +163,11 @@ export default {
       top: 50%;
       left: 50%;
     }
+
     &::before {
       transform: translate(-50%, -50%) rotate(-45deg);
     }
+
     &::after {
       transform: translate(-50%, -50%) rotate(45deg);
     }

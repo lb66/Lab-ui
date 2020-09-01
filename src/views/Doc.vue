@@ -22,6 +22,9 @@
         <li :class="{selected:checked==='/doc/layout'}" @click="select('layout')">
           <router-link to="/doc/layout">Layout 布局</router-link>
         </li>
+        <li :class="{selected:checked==='/doc/toast'}" @click="select('toast')">
+          <router-link to="/doc/toast">Toast 消息提示</router-link>
+        </li>
         <li :class="{selected:checked==='/doc/tabs'}" @click="select('tabs')">
           <router-link to="/doc/tabs">Tabs</router-link>
         </li>

@@ -1,6 +1,6 @@
 <template>
 <div class="ui-content">
-  <solt />
+  <slot />
 </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .ui-content {
   flex-grow: 1;
 }

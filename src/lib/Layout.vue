@@ -1,5 +1,5 @@
 <template>
-<div class="ui-layout" :class="layoutClass">
+<div class="ui-layout">
   <solt />
 </div>
 </template>
@@ -9,15 +9,14 @@ import {
   ref
 } from "vue";
 export default {
-  setup() {
-    const layoutClass = {
-      hasSider: ref(false),
-    };
-
-    return {
-      layoutClass,
-    };
-  },
+  // setup() {
+  //   const layoutClass = {
+  //     hasSider: ref(false),
+  //   };
+  // return {
+  //   layoutClass,
+  // };
+  // },
 };
 </script>
 
