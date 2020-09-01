@@ -1,6 +1,6 @@
 <template>
 <Teleport to="body" v-if="visible">
-  <div class="ui-toast" :class="position">
+  <div class="ui-toast" :class="positionClass">
     <div class="ui-toast-content">
       <slot />
     </div>
@@ -12,7 +12,8 @@
 <script lang="ts">
 import {
   watch,
-  ref
+  ref,
+  computed
 } from "vue";
 export default {
   props: {
@@ -26,12 +27,17 @@ export default {
     },
     closeTime: {
       type: Number,
-      default: 3,
+      default: 2,
+    },
+    position: {
+      type: String,
+      default: "top",
     },
   },
   setup(props, context) {
     const {
-      closeTime
+      closeTime,
+      position
     } = props;
     watch(
       () => props.visible,
@@ -46,8 +52,14 @@ export default {
     const closeToast = () => {
       context.emit("update:visible", false);
     };
+    const positionClass = computed(() => {
+      return {
+        [`position-${position}`]: position,
+      };
+    });
     return {
       closeToast,
+      positionClass,
     };
   },
 };
@@ -58,7 +70,6 @@ export default {
   min-height: 40px;
   line-height: 1.4;
   position: fixed;
-  top: 0;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -69,8 +80,21 @@ export default {
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
   padding: 10px 16px;
 
+  &.position-top {
+    top: 2%;
+  }
+
+  &.position-bottom {
+    bottom: 2%;
+  }
+
+  &.position-center {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   &-content {
-    max-width: 200px;
+    max-width: 220px;
     overflow: hidden;
     word-wrap: break-word;
     word-break: normal;
@@ -84,9 +108,9 @@ export default {
     &::before {
       content: "";
       position: absolute;
-      border-left: 1px solid grey;
-      height: 80%;
-      top: 10%;
+      border-left: 1px solid rgb(110, 110, 110);
+      height: 100%;
+      top: 0;
       right: 64px;
     }
   }

@@ -1,35 +1,58 @@
 <template>
-<button @click="openToast">click</button>
-<Toast v-model:visible="isVisible" autoClose :closeTime="1">hahaha</Toast>
+<Button @click="open1">可自动关闭</Button>
+<Toast v-model:visible="isVisible1" autoClose :closeTime="1">xxxxxxxxxx</Toast>
 <br />
-<button @click="openToast2">click2</button>
-<Toast v-model:visible="isVisible2">傻到家啦收到结束啦肯定就拉倒奥斯卡的几率</Toast>
+<br />
+<Button @click="open2">不自动关闭shang</Button>
+<Toast v-model:visible="isVisible2">xxxxxxxxxx</Toast>
+<br />
+<br />
+<Button @click="open3">不自动关闭zhong</Button>
+<Toast v-model:visible="isVisible3" position="center">xxxxxxxxxx</Toast>
+<br />
+<br />
+<Button @click="open4">不自动关闭xia</Button>
+<Toast v-model:visible="isVisible4" position="bottom">xxxxxxxxxx</Toast>
 </template>
 
 <script lang="ts">
 import Toast from "../lib/Toast.vue";
+import Button from "../lib/Button.vue";
 import {
   ref
 } from "vue";
-
 export default {
   components: {
     Toast,
+    Button,
   },
   setup(props, context) {
-    const isVisible = ref(false);
-    const openToast = () => {
-      isVisible.value = true;
+    const isVisible1 = ref(false);
+    const open1 = () => {
+      isVisible1.value = true;
     };
     const isVisible2 = ref(false);
-    const openToast2 = () => {
+    const open2 = () => {
       isVisible2.value = true;
     };
+    const isVisible3 = ref(false);
+    const open3 = () => {
+      isVisible3.value = true;
+    };
+    const isVisible4 = ref(false);
+    const open4 = () => {
+      isVisible4.value = true;
+    };
+
     return {
-      isVisible,
-      openToast,
+      isVisible1,
+      open1,
       isVisible2,
-      openToast2,
+      open2,
+      isVisible3,
+      open3,
+      isVisible4,
+      open4,
     };
   },
 };
