@@ -4,7 +4,9 @@
     <div class="ui-toast-content">
       <slot />
     </div>
-    <span v-if="!autoClose" class="ui-toast-close" @click="closeToast">关闭</span>
+    <svg v-if="!autoClose" class="ui-icon ui-toast-close" @click="closeToast" aria-hidden="true">
+      <use xlink:href="#icon-blueClose" />
+    </svg>
   </div>
 </Teleport>
 </template>
@@ -78,14 +80,14 @@ export default {
   background: rgba(0, 0, 0, 0.75);
   border-radius: 4px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
-  padding: 10px 16px;
+  padding: 8px 16px;
 
   &.position-top {
-    top: 2%;
+    top: 3%;
   }
 
   &.position-bottom {
-    bottom: 2%;
+    bottom: 3%;
   }
 
   &.position-center {
@@ -94,7 +96,7 @@ export default {
   }
 
   &-content {
-    max-width: 220px;
+    max-width: 200px;
     overflow: hidden;
     word-wrap: break-word;
     word-break: normal;
@@ -102,17 +104,8 @@ export default {
 
   &-close {
     padding-left: 16px;
-    margin-left: 16px;
-    flex-shrink: 0;
-
-    &::before {
-      content: "";
-      position: absolute;
-      border-left: 1px solid rgb(110, 110, 110);
-      height: 100%;
-      top: 0;
-      right: 64px;
-    }
+    width: 2em;
+    height: 2em;
   }
 }
 </style>

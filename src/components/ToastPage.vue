@@ -4,7 +4,7 @@
 <br />
 <br />
 <Button @click="open2">不自动关闭shang</Button>
-<Toast v-model:visible="isVisible2">xxxxxxxxxx</Toast>
+<Toast v-model:visible="isVisible2">xxxxccccccccccccccccccccccccxxxxxx</Toast>
 <br />
 <br />
 <Button @click="open3">不自动关闭zhong</Button>
@@ -12,7 +12,7 @@
 <br />
 <br />
 <Button @click="open4">不自动关闭xia</Button>
-<Toast v-model:visible="isVisible4" position="bottom">xxxxxxxxxx</Toast>
+<Toast v-model:visible="isVisible4" position="bottom">xsad卡深咖啡ad复活卡首付款xxxxxxxxx</Toast>
 </template>
 
 <script lang="ts">
