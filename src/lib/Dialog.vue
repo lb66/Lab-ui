@@ -1,32 +1,29 @@
 <template>
-<template v-if="visible">
-  <Teleport to="body">
-    <div class="ui-dialog-overlay" @click="clickOverlay"></div>
-    <div class="ui-dialog-wrapper">
-      <div class="ui-dialog" :class="class1">
-        <header>
-          <slot name="title" />
-          <span class="ui-dialog-close" @click="close"></span>
-        </header>
-        <main>
-          <slot name="content" />
-        </main>
-        <footer>
-          <Button @click="cancel">{{word1}}</Button>
-          <Button @click="confirm" theme="primary">{{word2}}</Button>
-        </footer>
+  <template v-if="visible">
+    <Teleport to="body">
+      <div class="ui-dialog-overlay" @click="clickOverlay"></div>
+      <div class="ui-dialog-wrapper">
+        <div class="ui-dialog" :class="class1">
+          <header>
+            <slot name="title" />
+            <span class="ui-dialog-close" @click="close"></span>
+          </header>
+          <main>
+            <slot name="content" />
+          </main>
+          <footer>
+            <Button @click="cancel">{{word1}}</Button>
+            <Button @click="confirm" theme="primary">{{word2}}</Button>
+          </footer>
+        </div>
       </div>
-    </div>
-  </Teleport>
-</template>
+    </Teleport>
+  </template>
 </template>
 
 <script lang="ts">
 import Button from "../lib/Button.vue";
-import {
-  computed,
-  ref
-} from "vue";
+import { computed, ref } from "vue";
 export default {
   components: {
     Button,
@@ -72,7 +69,6 @@ export default {
       close();
     };
     return {
-      close,
       clickOverlay,
       class1,
       cancel,
@@ -89,13 +85,15 @@ export default {
   }
 
   @keyframes ui-zoom {
-    0% {}
+    0% {
+    }
 
     50% {
       transform: scale(1.05);
     }
 
-    100% {}
+    100% {
+    }
   }
 
   background: white;
@@ -123,7 +121,7 @@ export default {
     z-index: 11;
   }
 
-  >header {
+  > header {
     padding: 12px 16px;
     border-bottom: 1px solid #d9d9d9;
     display: flex;
@@ -132,16 +130,16 @@ export default {
     font-size: 20px;
   }
 
-  >main {
+  > main {
     padding: 16px;
   }
 
-  >footer {
+  > footer {
     border-top: 1px solid #d9d9d9;
     padding: 12px 16px;
     text-align: right;
 
-    >Button {
+    > Button {
       margin-left: 10px;
     }
   }

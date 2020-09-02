@@ -1,24 +1,20 @@
 <template>
-<Teleport to="body" v-if="visible">
-  <div class="ui-toast" :class="positionClass">
-    <div class="toast">
-      <div class="ui-toast-content">
-        <slot />
+  <Teleport to="body" v-if="visible">
+    <div class="ui-toast" :class="positionClass">
+      <div class="toast">
+        <div class="ui-toast-content">
+          <slot />
+        </div>
+        <svg v-if="icon" class="ui-icon ui-toast-close" @click="onClick" aria-hidden="true">
+          <use :xlink:href="`#icon-blue${icon}`" />
+        </svg>
       </div>
-      <svg class="ui-icon ui-toast-close" @click="closeToast" aria-hidden="true">
-        <use xlink:href="#icon-blueClose" />
-      </svg>
     </div>
-  </div>
-</Teleport>
+  </Teleport>
 </template>
 
 <script lang="ts">
-import {
-  watch,
-  ref,
-  computed
-} from "vue";
+import { watch, ref, computed } from "vue";
 export default {
   props: {
     visible: {
@@ -37,12 +33,11 @@ export default {
       type: String,
       default: "top",
     },
+    icon: String,
+    onClick: Function,
   },
   setup(props, context) {
-    const {
-      closeTime,
-      position
-    } = props;
+    const { closeTime, position } = props;
     watch(
       () => props.visible,
       () => {
@@ -53,16 +48,20 @@ export default {
         }
       }
     );
-    const closeToast = () => {
-      context.emit("update:visible", false);
-    };
     const positionClass = computed(() => {
       return {
         [`position-${position}`]: position,
       };
     });
+    const closeToast = () => {
+      context.emit("update:visible", false);
+    };
+    const onClick = () => {
+      props.onClick?.();
+      closeToast();
+    };
     return {
-      closeToast,
+      onClick,
       positionClass,
     };
   },
@@ -109,7 +108,7 @@ export default {
   left: 50%;
   transform: translateX(-50%);
 
-  >.toast {
+  > .toast {
     line-height: 1.4;
     min-height: 40px;
     display: flex;

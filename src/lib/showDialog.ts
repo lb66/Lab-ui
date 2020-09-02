@@ -11,7 +11,7 @@ export const showDialog = (options) => {
         Dialog,
         {
           visible: true,
-          //监听Visible的值变化 'onUpdate:toast'
+          //监听Visible的值变化 'onUpdate:xx'
           "onUpdate:visible": (value) => {
             if (value === false) {
               app.unmount(div);

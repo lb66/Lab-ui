@@ -1,18 +1,15 @@
 <template>
-<button class="ui-button" :class="classes" @click="toggle">
-  <span v-if="loading" class="loadingSymbol"></span>
-  <svg v-if="icon" class="ui-icon" aria-hidden="true">
-    <use :xlink:href="`#icon-${icon}`" />
-  </svg>
-  <slot />
-</button>
+  <button class="ui-button" :class="classes" @click="toggle">
+    <span v-if="loading" class="loadingSymbol"></span>
+    <svg v-if="icon" class="ui-icon" aria-hidden="true">
+      <use :xlink:href="`#icon-${icon}`" />
+    </svg>
+    <slot />
+  </button>
 </template>
 
 <script lang="ts">
-import {
-  computed,
-  ref
-} from "vue";
+import { computed, ref } from "vue";
 export default {
   props: {
     theme: {
@@ -29,12 +26,7 @@ export default {
     shape: String,
   },
   setup(props, context) {
-    const {
-      theme,
-      size,
-      level,
-      shape
-    } = props;
+    const { theme, size, level, shape } = props;
     const classes = computed(() => {
       return {
         [`theme-${theme}`]: theme,
@@ -64,7 +56,7 @@ export default {
   -ms-user-select: none;
   user-select: none;
 
-  >.ui-icon {
+  > .ui-icon {
     width: 1.5em;
     height: 1.5em;
   }
@@ -101,7 +93,7 @@ export default {
       color: #a0a0a0;
       border-color: #f5f5f5;
 
-      >.ui-icon {
+      > .ui-icon {
         fill: currentColor !important;
         color: grey;
       }
@@ -196,7 +188,7 @@ export default {
       background: darken(#2d8cf0, 5%);
     }
 
-    >.loadingSymbol {
+    > .loadingSymbol {
       border-color: white white white transparent;
     }
   }
@@ -267,7 +259,7 @@ export default {
     padding: 0 20px;
   }
 
-  >.loadingSymbol {
+  > .loadingSymbol {
     width: 14px;
     height: 14px;
     display: inline-block;
