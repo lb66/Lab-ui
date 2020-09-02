@@ -5,8 +5,8 @@ import ButtonPage from './components/ButtonPage.vue'
 import InputPage from './components/InputPage.vue'
 import DialogPage from './components/DialogPage.vue'
 import GridPage from './components/GridPage.vue'
-import LayoutPage from './components/LayoutPage.vue'
 import ToastPage from './components/ToastPage.vue'
+import CollapsePage from './components/CollapsePage.vue'
 import Tabs from './components/Tabs.vue'
 import Demo from './components/Demo.vue'
 import { createWebHashHistory, createRouter } from 'vue-router'
@@ -24,8 +24,8 @@ const router = createRouter({
         { path: 'input', component: InputPage },
         { path: 'dialog', component: DialogPage },
         { path: 'grid', component: GridPage },
-        { path: 'layout', component: LayoutPage },
         { path: 'toast', component: ToastPage },
+        { path: 'collapse', component: CollapsePage },
         { path: 'tabs', component: Tabs }
       ]
     }

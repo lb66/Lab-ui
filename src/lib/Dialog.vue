@@ -69,6 +69,7 @@ export default {
       close();
     };
     return {
+      close,
       clickOverlay,
       class1,
       cancel,
