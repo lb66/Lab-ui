@@ -1,17 +1,17 @@
 <template>
-  <div class="collapse">
-    <slot />
-  </div>
+<div class="ui-collapse">
+  <slot />
+</div>
 </template>
 
-<script>
+<script lang="ts">
 export default {};
 </script>
 
 <style lang="scss">
-.collapse {
+.ui-collapse {
   border: 1px solid #d9d9d9;
   border-radius: 4px;
-  overflow: hidden;
+  cursor: pointer;
 }
 </style>

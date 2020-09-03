@@ -1,13 +1,13 @@
 <template>
-  <h1>Grid 栅格</h1>
-  <Collapse>
-    <CollapseItem>1</CollapseItem>
-    <CollapseItem>2</CollapseItem>
-    <CollapseItem>3</CollapseItem>
-  </Collapse>
+<h1>Collapse 折叠面板</h1>
+<Collapse>
+  <CollapseItem title="自定义标题">1</CollapseItem>
+  <CollapseItem>2</CollapseItem>
+  <CollapseItem>3</CollapseItem>
+</Collapse>
 </template>
 
-<script>
+<script lang="ts">
 import Collapse from "../lib/Collapse.vue";
 import CollapseItem from "../lib/CollapseItem.vue";
 export default {

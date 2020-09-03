@@ -12,11 +12,16 @@
 import Switch from "../lib/Switch.vue";
 import { ref } from "vue";
 export default {
-  components: { Switch },
+  components: {
+    Switch,
+  },
   setup() {
     const switch1 = ref(false); //开关初始状态
     const switch2 = ref(true);
-    return { switch1, switch2 };
+    return {
+      switch1,
+      switch2,
+    };
   },
 };
 </script>
