@@ -2,8 +2,9 @@
 <div>
   <h1>Tabs 标签页</h1>
   <Tabs v-model:selected="title">
-    <Tab title="标题1">1</Tab>
-    <Tab title="标题2">2</Tab>
+    <Tab title="标题一">1</Tab>
+    <Tab title="标题二">2</Tab>
+    <Tab title="标题三">3</Tab>
   </Tabs>
 </div>
 </template>
@@ -20,7 +21,7 @@ export default {
     Tab,
   },
   setup() {
-    const title = ref("");
+    const title = ref("标题一"); //用户设置默认标签
     return {
       title,
     };
