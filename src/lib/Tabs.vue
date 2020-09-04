@@ -13,8 +13,8 @@
 <script lang="ts">
 import {
   ref,
-  onMounted,
-  onUpdated
+  watchEffect,
+  onMounted
 } from "vue";
 export default {
   props: {
@@ -31,22 +31,22 @@ export default {
     const selectedItem = ref < HTMLDivElement > (null);
     const line = ref < HTMLDivElement > (null);
     const container = ref < HTMLDivElement > (null);
-    const x = () => {
-      const {
-        width
-      } = selectedItem.value.getBoundingClientRect();
-      line.value.style.width = width + 32 + "px";
-      const {
-        left: left1
-      } = container.value.getBoundingClientRect();
-      const {
-        left: left2
-      } = selectedItem.value.getBoundingClientRect();
-      const left = left2 - left1;
-      line.value.style.left = left - 16 + "px";
-    };
-    onMounted(x);
-    onUpdated(x);
+    onMounted(() => {
+      watchEffect(() => {
+        const {
+          width
+        } = selectedItem.value.getBoundingClientRect();
+        line.value.style.width = width + 32 + "px";
+        const {
+          left: left1
+        } = container.value.getBoundingClientRect();
+        const {
+          left: left2
+        } = selectedItem.value.getBoundingClientRect();
+        const left = left2 - left1;
+        line.value.style.left = left - 16 + "px";
+      });
+    });
     return {
       defaults,
       titles,
