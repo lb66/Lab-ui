@@ -1,4 +1,5 @@
 <template>
+<div>
   <h1>Input 输入框</h1>
   <Input placeholder="请输入内容" />
   <Input value="Disabled" disabled />
@@ -6,11 +7,14 @@
   <Input :value="text1" @input="text1 = $event.target.value" />
   :{{text1}}
   <Input placeholder="请输入内容" clearable v-model:value="text2" @input="text2=$event.target.value" />
+</div>
 </template>
 
 <script lang="ts">
 import Input from "../lib/input.vue";
-import { ref } from "vue";
+import {
+  ref
+} from "vue";
 export default {
   components: {
     Input,

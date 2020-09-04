@@ -1,43 +1,52 @@
 <template>
-  <div>
-    <Topnav />
-    <div class="content">
-      <aside v-if="asideVisible">
-        <ol>
-          <li :class="{selected:checked==='/doc/switch'}" @click="select('switch')">
-            <router-link to="/doc/switch">Switch 开关</router-link>
-          </li>
-          <li :class="{selected:checked==='/doc/button'}" @click="select('button')">
-            <router-link to="/doc/button">Button 按钮</router-link>
-          </li>
-          <li :class="{selected:checked==='/doc/input'}" @click="select('input')">
-            <router-link to="/doc/input">Input 输入框</router-link>
-          </li>
-          <li :class="{selected:checked==='/doc/dialog'}" @click="select('dialog')">
-            <router-link to="/doc/dialog">Dialog 对话框</router-link>
-          </li>
-          <li :class="{selected:checked==='/doc/grid'}" @click="select('grid')">
-            <router-link to="/doc/grid">Grid 栅格</router-link>
-          </li>
-          <li :class="{selected:checked==='/doc/toast'}" @click="select('toast')">
-            <router-link to="/doc/toast">Toast 消息提示</router-link>
-          </li>
-          <li :class="{selected:checked==='/doc/collapse'}" @click="select('collapse')">
-            <router-link to="/doc/collapse">Collapse 折叠面板</router-link>
-          </li>
-        </ol>
-      </aside>
-      <main>
-        <router-view />
-      </main>
-    </div>
+<div>
+  <Topnav />
+  <div class="content">
+    <aside v-if="asideVisible">
+      <ol>
+        <li :class="{selected:checked==='/doc/switch'}" @click="select('switch')">
+          <router-link to="/doc/switch">Switch 开关</router-link>
+        </li>
+        <li :class="{selected:checked==='/doc/button'}" @click="select('button')">
+          <router-link to="/doc/button">Button 按钮</router-link>
+        </li>
+        <li :class="{selected:checked==='/doc/input'}" @click="select('input')">
+          <router-link to="/doc/input">Input 输入框</router-link>
+        </li>
+        <li :class="{selected:checked==='/doc/dialog'}" @click="select('dialog')">
+          <router-link to="/doc/dialog">Dialog 对话框</router-link>
+        </li>
+        <li :class="{selected:checked==='/doc/grid'}" @click="select('grid')">
+          <router-link to="/doc/grid">Grid 栅格</router-link>
+        </li>
+        <li :class="{selected:checked==='/doc/toast'}" @click="select('toast')">
+          <router-link to="/doc/toast">Toast 消息提示</router-link>
+        </li>
+        <li :class="{selected:checked==='/doc/tabs'}" @click="select('tabs')">
+          <router-link to="/doc/tabs">Tabs 标签页</router-link>
+        </li>
+        <li :class="{selected:checked==='/doc/collapse'}" @click="select('collapse')">
+          <router-link to="/doc/collapse">Collapse 折叠面板</router-link>
+        </li>
+      </ol>
+    </aside>
+    <main>
+      <router-view />
+    </main>
   </div>
+</div>
 </template>
 
 <script lang="ts">
 import Topnav from "../components/Topnav.vue";
-import { useRouter } from "vue-router";
-import { inject, Ref, ref } from "vue";
+import {
+  useRouter
+} from "vue-router";
+import {
+  inject,
+  Ref,
+  ref
+} from "vue";
 
 export default {
   components: {
@@ -45,7 +54,7 @@ export default {
   },
   setup() {
     const path = useRouter().currentRoute.value.path; //当前路径
-    const asideVisible = inject<Ref<boolean>>("asideVisible");
+    const asideVisible = inject < Ref < boolean >> ("asideVisible");
     const checked = ref(path);
     const select = (string) => {
       checked.value = "/doc/" + string;
@@ -73,8 +82,8 @@ aside {
     width: 100%;
   }
 
-  > ol {
-    > li {
+  >ol {
+    >li {
       padding: 4px 16px;
       margin: 12px 0;
 

@@ -1,4 +1,5 @@
 <template>
+<div>
   <h1>Dialog 对话框</h1>
   <Button @click="open">打开对话框</Button>
   <Dialog v-model:visible="isVisible" :confirm="f1" :cancel="f2">
@@ -14,13 +15,19 @@
   <br />
 
   <Button @click="openDialog">打开对话框</Button>
+</div>
 </template>
 
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue";
 import Button from "../lib/Button.vue";
-import { showDialog } from "../lib/showDialog";
-import { ref, h } from "vue";
+import {
+  showDialog
+} from "../lib/showDialog";
+import {
+  ref,
+  h
+} from "vue";
 export default {
   components: {
     Dialog,

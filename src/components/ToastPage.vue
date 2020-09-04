@@ -1,5 +1,6 @@
 <template>
-  <h1>Grid 栅格</h1>
+<div>
+  <h1>Toast 消息提示</h1>
   <Button @click="open1">可自动关闭</Button>
   <Toast v-model:visible="isVisible1" autoClose :closeTime="1">这是一条会自动关闭的消息</Toast>
   <br />
@@ -9,22 +10,20 @@
   <br />
   <br />
   <Button @click="open3">不自动关闭zhong</Button>
-  <Toast
-    v-model:visible="isVisible3"
-    position="center"
-    icon="OK"
-    :onClick="f1"
-  >屏幕中间弹出的消息，多行文字示例点击关闭。</Toast>
+  <Toast v-model:visible="isVisible3" position="center" icon="OK" :onClick="f1">屏幕中间弹出的消息，多行文字示例点击关闭。</Toast>
   <br />
   <br />
   <Button @click="open4">不自动关闭xia</Button>
   <Toast v-model:visible="isVisible4" position="bottom" icon="Close" :onClick="f2">屏幕下方弹出的消息</Toast>
+</div>
 </template>
 
 <script lang="ts">
 import Toast from "../lib/Toast.vue";
 import Button from "../lib/Button.vue";
-import { ref } from "vue";
+import {
+  ref
+} from "vue";
 export default {
   components: {
     Toast,

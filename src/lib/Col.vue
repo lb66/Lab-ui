@@ -1,20 +1,26 @@
 <template>
-  <div class="ui-col" :class="colClass" :style="colStyle">
-    <slot />
-  </div>
+<div class="ui-col" :class="colClass" :style="colStyle">
+  <slot />
+</div>
 </template>
 
 <script lang="ts">
-import { computed, inject, Ref } from "vue";
+import {
+  computed,
+  inject,
+  Ref
+} from "vue";
 export default {
   props: {
     span: [Number, String],
     offset: [Number, String],
-    // gutter: [Number, String],
   },
   setup(props, context) {
-    const { span, offset } = props;
-    const gutter = inject<Ref<number>>("gutter");
+    const {
+      span,
+      offset
+    } = props;
+    const gutter = inject < Ref < number >> ("gutter");
     const colClass = computed(() => {
       return {
         [`ui-col-${span}`]: span,
