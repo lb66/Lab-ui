@@ -71,10 +71,6 @@ export default {
       margin: 0 28px 0 16px;
       cursor: pointer;
 
-      &:first-child {
-        // margin-left: 0;
-      }
-
       &.selected {
         color: #2d8cf0;
       }
