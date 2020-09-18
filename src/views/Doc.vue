@@ -3,29 +3,42 @@
   <Topnav toggleButtonVisible />
   <div class="content">
     <aside v-if="asideVisible">
+      <h2>文档</h2>
       <ol>
-        <li :class="{selected:checked==='/doc/switch'}" @click="select('switch')">
+        <li>
+          <router-link to="/doc/introduce">介绍</router-link>
+        </li>
+        <li>
+          <router-link to="/doc/start">开始</router-link>
+        </li>
+        <li>
+          <router-link to="/doc/install">安装</router-link>
+        </li>
+      </ol>
+      <h2>组件</h2>
+      <ol>
+        <li>
           <router-link to="/doc/switch">Switch 开关</router-link>
         </li>
-        <li :class="{selected:checked==='/doc/button'}" @click="select('button')">
+        <li>
           <router-link to="/doc/button">Button 按钮</router-link>
         </li>
-        <li :class="{selected:checked==='/doc/input'}" @click="select('input')">
+        <li>
           <router-link to="/doc/input">Input 输入框</router-link>
         </li>
-        <li :class="{selected:checked==='/doc/dialog'}" @click="select('dialog')">
+        <li>
           <router-link to="/doc/dialog">Dialog 对话框</router-link>
         </li>
-        <li :class="{selected:checked==='/doc/grid'}" @click="select('grid')">
+        <li>
           <router-link to="/doc/grid">Grid 栅格</router-link>
         </li>
-        <li :class="{selected:checked==='/doc/toast'}" @click="select('toast')">
+        <li>
           <router-link to="/doc/toast">Toast 消息提示</router-link>
         </li>
-        <li :class="{selected:checked==='/doc/tabs'}" @click="select('tabs')">
+        <li>
           <router-link to="/doc/tabs">Tabs 标签页</router-link>
         </li>
-        <li :class="{selected:checked==='/doc/collapse'}" @click="select('collapse')">
+        <li>
           <router-link to="/doc/collapse">Collapse 折叠面板</router-link>
         </li>
       </ol>
@@ -53,16 +66,9 @@ export default {
     Topnav,
   },
   setup() {
-    const path = useRouter().currentRoute.value.path; //当前路径
     const asideVisible = inject < Ref < boolean >> ("asideVisible");
-    const checked = ref(path);
-    const select = (string) => {
-      checked.value = "/doc/" + string;
-    };
     return {
       asideVisible,
-      checked,
-      select,
     };
   },
 };
@@ -81,7 +87,7 @@ aside {
 
   @media (max-width: 500px) {
     width: 100%;
-    padding: 100px 0;
+    padding: 80px 0 0 0;
     text-align: center;
   }
 
@@ -95,20 +101,15 @@ aside {
         color: #ff9401;
       }
 
-      &.selected {
+      .router-link-active {
         color: #ff9401;
+        font-weight: 700;
       }
 
       @media (min-width: 500px) {
         &:hover {
           border-left: 2px solid #ff9401;
           padding: 4px 14px;
-        }
-
-        &.selected {
-          border-left: 4px solid #ff9401;
-          font-weight: 700;
-          padding: 4px 12px;
         }
       }
     }
