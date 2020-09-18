@@ -1,6 +1,6 @@
 <template>
 <div>
-  <Topnav />
+  <Topnav toggleButtonVisible />
   <div class="content">
     <aside v-if="asideVisible">
       <ol>
@@ -73,32 +73,43 @@ aside {
   z-index: -1;
   position: absolute;
   bottom: 0;
-  top: 50px;
-  background: #f5f5f5;
+  top: 0;
+  background: #111;
+  color: white;
   width: 18vw;
-  padding: 36px 0 36px 2vw;
+  padding: 80px 0 0 2vw;
 
   @media (max-width: 500px) {
     width: 100%;
-    padding: 36px;
+    padding: 100px 0;
+    text-align: center;
   }
 
   >ol {
     >li {
       padding: 4px 16px;
       margin: 12px 0;
+      font-size: 18px;
 
       &:hover {
-        color: royalblue;
-        border-left: 2px solid royalblue;
-        padding: 4px 14px;
+        color: #ff9401;
       }
 
       &.selected {
-        border-left: 4px solid royalblue;
-        color: royalblue;
-        font-weight: 700;
-        padding: 4px 12px;
+        color: #ff9401;
+      }
+
+      @media (min-width: 500px) {
+        &:hover {
+          border-left: 2px solid #ff9401;
+          padding: 4px 14px;
+        }
+
+        &.selected {
+          border-left: 4px solid #ff9401;
+          font-weight: 700;
+          padding: 4px 12px;
+        }
       }
     }
   }
