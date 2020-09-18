@@ -76,10 +76,11 @@ aside {
   top: 50px;
   background: #f5f5f5;
   width: 18vw;
-  padding: 36px 0 36px 36px;
+  padding: 36px 0 36px 2vw;
 
   @media (max-width: 500px) {
     width: 100%;
+    padding: 36px;
   }
 
   >ol {
