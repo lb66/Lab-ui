@@ -13,7 +13,7 @@
     </Row>
     <br />
     <Row :gutter="20">
-      <Col span="14" class="col">14</Col>
+      <Col span="14">14</Col>
       <Col span="10">10</Col>
     </Row>
     <br />
@@ -64,9 +64,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.col {
-  border: 1px solid red;
-  background: #2d8cf0;
-  color: white;
-}
 </style>
