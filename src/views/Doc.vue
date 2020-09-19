@@ -9,10 +9,10 @@
           <router-link to="/doc/introduce">介绍</router-link>
         </li>
         <li>
-          <router-link to="/doc/start">开始</router-link>
+          <router-link to="/doc/install">安装</router-link>
         </li>
         <li>
-          <router-link to="/doc/install">安装</router-link>
+          <router-link to="/doc/start">开始</router-link>
         </li>
       </ol>
       <h2>组件</h2>
@@ -91,11 +91,15 @@ aside {
     text-align: center;
   }
 
+  >h2 {
+    padding: 0 16px;
+  }
+
   >ol {
     >li {
       padding: 4px 16px;
       margin: 12px 0;
-      font-size: 18px;
+      font-size: 16px;
 
       &:hover {
         color: #ff9401;

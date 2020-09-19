@@ -82,7 +82,6 @@ export default {
       background: #2d8cf0;
       left: 0;
       bottom: -1px;
-      width: 100px;
       transition: left 0.3s;
     }
   }

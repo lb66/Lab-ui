@@ -45,7 +45,6 @@ export default {
 .topnav {
   display: flex;
   padding: 22px 42px;
-  color: #fff;
   align-items: center;
 
   >.logo {
