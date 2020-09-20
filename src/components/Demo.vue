@@ -2,7 +2,7 @@
   <div class="demo">
     <div class="demo-head">
       <h2>{{component.__sourceCodeTitle}}</h2>
-      <p>{{explain}}</p>
+      <p v-html="explain"></p>
     </div>
     <div class="demo-component">
       <component :is="component" />
@@ -58,20 +58,27 @@ $border-color: #d9d9d9;
   border-radius: 8px;
   margin: 16px 0 32px;
 
+  &:hover {
+    box-shadow: 0 6px 20px -4px rgba(0, 0, 0, 0.2);
+    border-color: #fff;
+    transition: box-shadow 0.3s;
+    transition: border-color 0.3s;
+  }
+
   &-head {
     padding: 16px;
-    border-bottom: 1px solid $border-color;
 
     > h2 {
       font-size: 20px;
+      margin-bottom: 10px;
     }
   }
 
   &-component {
-    padding: 16px;
+    padding: 4px 16px 16px 16px;
     display: flex;
-    width: 200px;
     align-items: center;
+    width: 200px;
 
     :nth-child(1) {
       margin-right: 20px;

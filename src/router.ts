@@ -8,7 +8,6 @@ import GridPage from './components/GridPage.vue'
 import ToastPage from './components/ToastPage.vue'
 import CollapsePage from './components/CollapsePage.vue'
 import TabsPage from './components/TabsPage.vue'
-import Demo from './components/Demo.vue'
 import { h } from 'vue';
 import Markdown from './components/Markdown.vue';
 import { createWebHashHistory, createRouter } from 'vue-router'
@@ -20,9 +19,10 @@ const router = createRouter({
     { path: '/', component: Home },
     {                             //children嵌套路由
       path: '/doc', component: Doc, children: [
-        { path: '', component: Demo },
-        { path: "install", component: h(Markdown, { path: '../markdown/install.md', key: '1' }) },
-        { path: "start", component: h(Markdown, { path: '../markdown/start.md', key: '2' }) },
+        { path: '', redirect: '/doc/introduce' },//修改
+        { path: "introduce", component: h(Markdown, { path: '../markdown/introduce.md', key: '1' }) },
+        { path: "install", component: h(Markdown, { path: '../markdown/install.md', key: '2' }) },
+        { path: "start", component: h(Markdown, { path: '../markdown/start.md', key: '3' }) },
         { path: 'switch', component: SwitchPage },
         { path: 'button', component: ButtonPage },
         { path: 'input', component: InputPage },
