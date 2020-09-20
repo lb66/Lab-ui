@@ -1,7 +1,7 @@
 <template>
-  <button class="ui-switch" :class="{'ui-checked':value}" @click="toggle">
-    <span :class="theme"></span>
-  </button>
+<button class="ui-switch" :class="{'ui-checked':value}" @click="toggle">
+  <span :class="theme"></span>
+</button>
 </template>
 
 <script lang="ts">
@@ -37,7 +37,13 @@ export default {
   transition: 0.3s;
   cursor: pointer;
 
-  > span {
+  &[disabled] {
+    cursor: not-allowed;
+    color: #a0a0a0;
+    border-color: #f5f5f5;
+  }
+
+  >span {
     &.a {
       transform: scale(1.1);
     }
@@ -58,7 +64,7 @@ export default {
   }
 
   &:active {
-    > span {
+    >span {
       width: 26px;
     }
   }
@@ -67,12 +73,12 @@ export default {
 button.ui-checked {
   background: #2d8cf0;
 
-  > span {
+  >span {
     left: 22px;
   }
 
   &:active {
-    > span {
+    >span {
       width: 26px;
       margin-left: -4px;
     }

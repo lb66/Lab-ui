@@ -83,7 +83,7 @@ aside {
   background: #111;
   color: white;
   width: 18vw;
-  padding: 80px 0 0 2vw;
+  padding: 86px 0 0 2vw;
 
   @media (max-width: 500px) {
     width: 100%;
