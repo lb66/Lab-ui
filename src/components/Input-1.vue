@@ -4,7 +4,7 @@
 
 <template>
 <Input placeholder="请输入内容" v-model:value="text" @input="text=$event.target.value" />
-{{text}}
+输入内容：{{text}}
 </template>
 
 <script lang="ts">
