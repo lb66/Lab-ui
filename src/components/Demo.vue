@@ -83,7 +83,7 @@ $border-color: #d9d9d9;
     align-items: center;
     width: 380px;
     flex-wrap: wrap;
-    line-height: 3.2;
+    gap: 10px; //子元素间距
   }
 
   &-actions {

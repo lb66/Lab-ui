@@ -84,10 +84,6 @@ export default {
   color: inherit;
   background: white;
 
-  &+& {
-    margin-left: 10px;
-  }
-
   &.theme-default {
     &:hover {
       color: #2d8cf0;
