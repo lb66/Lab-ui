@@ -2,11 +2,14 @@
 <Teleport to="body" v-if="visible">
   <div class="ui-toast" :class="positionClass">
     <div class="toast">
+      <svg v-if="status" class="ui-icon ui-toast-icon" aria-hidden="true">
+        <use :xlink:href="`#icon-${status}`" />
+      </svg>
       <div class="ui-toast-content">
         <slot />
       </div>
-      <svg v-if="icon" class="ui-icon ui-toast-close" @click="onClick" aria-hidden="true">
-        <use :xlink:href="`#icon-blue${icon}`" />
+      <svg v-if="closable" class="ui-icon ui-toast-close" @click="onClick" aria-hidden="true">
+        <use :xlink:href="`#icon-blueClose`" />
       </svg>
     </div>
   </div>
@@ -37,8 +40,12 @@ export default {
       type: String,
       default: "top",
     },
-    icon: String,
+    status: String,
     onClick: Function,
+    closable: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, context) {
     const {
@@ -164,6 +171,12 @@ export default {
     height: 2em;
     width: 2em;
     cursor: pointer;
+  }
+
+  &-icon {
+    padding-right: 16px;
+    height: 2em;
+    width: 2em;
   }
 }
 </style>
