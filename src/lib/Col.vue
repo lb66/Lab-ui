@@ -50,7 +50,8 @@ export default {
 
 <style lang="scss">
 .ui-col {
-  border: 1px solid #9c9999;
+  border: 1px solid #ccc;
+  background-color: #eee;
   display: flex;
   justify-content: center;
   align-items: center;

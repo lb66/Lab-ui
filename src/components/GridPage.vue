@@ -1,64 +1,28 @@
 <template>
 <div>
   <h1>Grid 栅格</h1>
-  <div>
-    <Row>
-      <Col span="16">16</Col>
-      <Col span="8">8</Col>
-    </Row>
-    <br />
-    <Row>
-      <Col span="8">8</Col>
-      <Col span="12" offset="4">12</Col>
-    </Row>
-    <br />
-    <Row :gutter="20">
-      <Col span="14">14</Col>
-      <Col span="10">10</Col>
-    </Row>
-    <br />
-    <Row :gutter="20">
-      <Col span="6" offset="4">6</Col>
-      <Col span="8">8</Col>
-      <Col span="6">6</Col>
-    </Row>
-    <br />子元素向左排列
-    <Row justify="start">
-      <Col span="6">6</Col>
-      <Col span="6">6</Col>
-      <Col span="6">col-6</Col>
-    </Row>子元素向右排列
-    <Row justify="end">
-      <Col span="6">6</Col>
-      <Col span="6">6</Col>
-      <Col span="6">6</Col>
-    </Row>子元素居中排列
-    <Row justify="center">
-      <Col span="6">6</Col>
-      <Col span="6">6</Col>
-      <Col span="6">6</Col>
-    </Row>子元素等宽排列
-    <Row justify="between">
-      <Col span="6">6</Col>
-      <Col span="6">6</Col>
-      <Col span="6">6</Col>
-    </Row>子元素分散排列
-    <Row justify="around">
-      <Col span="6">6</Col>
-      <Col span="6">6</Col>
-      <Col span="6">6</Col>
-    </Row>
-  </div>
+  <Card :component="Grid1" explain="Grid 组件采用了24栅格系统，通过在 Col 上添加 span 属性设置列所占的宽度百分比。<br/>
+此外，添加 offset 属性可以设置列的偏移宽度，计算方式与 span 相同。" />
+  <Card :component="Grid2" explain="通过 gutter 属性可以设置列元素之间的间距，默认间距为 0 px" />
+  <Card :component="Grid3" explain="通过 gutter 属性可以设置列元素之间的间距，默认间距为 0 px" />
 </div>
 </template>
 
 <script lang="ts">
-import Col from "../lib/Col.vue";
-import Row from "../lib/Row.vue";
+import Card from "./Demo.vue";
+import Grid1 from "./Grid-1.vue";
+import Grid2 from "./Grid-2.vue";
+import Grid3 from "./Grid-3.vue";
 export default {
   components: {
-    Col,
-    Row,
+    Card,
+  },
+  setup() {
+    return {
+      Grid1,
+      Grid2,
+      Grid3,
+    };
   },
 };
 </script>

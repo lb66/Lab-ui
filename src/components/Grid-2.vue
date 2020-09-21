@@ -1,15 +1,11 @@
 <demo>
-基础用法
+设置列元素间距
 </demo>
 <template>
-<Row>
-  <Col span="16">span:16</Col>
+<Row :gutter="20">
+  <Col span="6">span:6</Col>
   <Col span="8">span:8</Col>
-</Row>
-<br />
-<Row>
-  <Col span="8">span:8</Col>
-  <Col span="12" offset="4">span:12,offset:12</Col>
+  <Col span="10">span:10</Col>
 </Row>
 </template>
 

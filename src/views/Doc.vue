@@ -123,13 +123,13 @@ aside {
 main {
   z-index: -2;
   position: absolute;
-  top: 52.8px;
+  top: 60px;
   bottom: 0;
   left: 18vw;
   overflow: auto;
   background: white;
   right: 0;
-  padding: 28px;
+  padding: 24px;
 
   @media (max-width: 500px) {
     left: 0;

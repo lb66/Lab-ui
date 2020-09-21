@@ -4,6 +4,7 @@
 
 <template>
 <Switch v-model:value="bool1" theme="a" />
+<br />
 <Switch v-model:value="bool2" theme="b" />
 </template>
 

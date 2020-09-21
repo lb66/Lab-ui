@@ -79,11 +79,7 @@ $border-color: #d9d9d9;
 
   &-component {
     padding: 0 16px 16px 16px;
-    display: flex;
-    align-items: center;
-    width: 380px;
-    flex-wrap: wrap;
-    gap: 10px; //子元素间距
+    width: 100%;
   }
 
   &-actions {
