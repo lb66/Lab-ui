@@ -1,26 +1,29 @@
 <template>
-  <div class="demo">
-    <div class="demo-head">
-      <h2>{{component.__sourceCodeTitle}}</h2>
-      <p v-html="explain"></p>
-    </div>
-    <div class="demo-component">
-      <component :is="component" />
-    </div>
-    <div class="demo-actions">
-      <Button @click="toggleCode">查看代码</Button>
-    </div>
-    <div class="demo-code" v-if="codeVisible">
-      <pre class="language-html" v-html="html" />
-    </div>
+<div class="demo">
+  <div class="demo-head">
+    <h2>{{component.__sourceCodeTitle}}</h2>
+    <p v-html="explain"></p>
   </div>
+  <div class="demo-component">
+    <component :is="component" />
+  </div>
+  <div class="demo-actions">
+    <Button @click="toggleCode">查看代码</Button>
+  </div>
+  <div class="demo-code" v-if="codeVisible">
+    <pre class="language-html" v-html="html" />
+  </div>
+</div>
 </template>
 
 <script lang="ts">
 import Button from "../lib/Button.vue";
 import "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
-import { computed, ref } from "vue";
+import {
+  computed,
+  ref
+} from "vue";
 const Prism = (window as any).Prism;
 export default {
   props: {
@@ -68,21 +71,19 @@ $border-color: #d9d9d9;
   &-head {
     padding: 16px;
 
-    > h2 {
+    >h2 {
       font-size: 20px;
       margin-bottom: 10px;
     }
   }
 
   &-component {
-    padding: 4px 16px 16px 16px;
+    padding: 0 16px 16px 16px;
     display: flex;
     align-items: center;
-    width: 200px;
-
-    :nth-child(1) {
-      margin-right: 20px;
-    }
+    width: 380px;
+    flex-wrap: wrap;
+    line-height: 3.2;
   }
 
   &-actions {
@@ -94,7 +95,7 @@ $border-color: #d9d9d9;
     padding: 12px 16px;
     border-top: 1px dashed $border-color;
 
-    > pre {
+    >pre {
       line-height: 1.1;
       font-family: Consolas, "Courier New", Courier, monospace;
       margin: 0;
