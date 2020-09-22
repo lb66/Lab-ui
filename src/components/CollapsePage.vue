@@ -1,21 +1,21 @@
 <template>
 <div>
   <h1>Collapse 折叠面板</h1>
-  <Collapse>
-    <CollapseItem title="自定义标题">1</CollapseItem>
-    <CollapseItem>2</CollapseItem>
-    <CollapseItem>3</CollapseItem>
-  </Collapse>
+  <Card :component="Collapse1" explain="设置 title 自定义标题" />
 </div>
 </template>
 
 <script lang="ts">
-import Collapse from "../lib/Collapse.vue";
-import CollapseItem from "../lib/CollapseItem.vue";
+import Card from "./Demo.vue";
+import Collapse1 from "./Collapse-1.vue";
 export default {
   components: {
-    CollapseItem,
-    Collapse,
+    Card,
+  },
+  setup() {
+    return {
+      Collapse1,
+    };
   },
 };
 </script>

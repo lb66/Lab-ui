@@ -55,7 +55,6 @@ export default {
     align-items: center;
     padding: 0 6px;
     background: #f7f7f7;
-    // border-bottom: none;
     user-select: none;
   }
 
