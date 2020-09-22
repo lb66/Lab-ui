@@ -41,6 +41,9 @@
         <li>
           <router-link to="/doc/collapse">Collapse 折叠面板</router-link>
         </li>
+        <li>
+          <router-link to="/doc/poptip">Poptip 气泡提示</router-link>
+        </li>
       </ol>
     </aside>
     <main>

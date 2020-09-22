@@ -8,6 +8,7 @@ import GridPage from './components/GridPage.vue'
 import ToastPage from './components/ToastPage.vue'
 import CollapsePage from './components/CollapsePage.vue'
 import TabsPage from './components/TabsPage.vue'
+import PoptipPage from './components/PoptipPage.vue'
 import { h } from 'vue';
 import Markdown from './components/Markdown.vue';
 import { createWebHashHistory, createRouter } from 'vue-router'
@@ -30,7 +31,8 @@ const router = createRouter({
         { path: 'grid', component: GridPage },
         { path: 'toast', component: ToastPage },
         { path: 'collapse', component: CollapsePage },
-        { path: 'tabs', component: TabsPage }
+        { path: 'tabs', component: TabsPage },
+        { path: 'poptip', component: PoptipPage }
       ]
     }
   ]
