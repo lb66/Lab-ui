@@ -3,7 +3,7 @@
 </demo>
 
 <template>
-  <Input placeholder="请输入内容" clearable v-model:value="text" @input="text=$event.target.value" />
+  <Input placeholder="请输入内容" clearable v-model:value="text" />
 </template>
 
 <script lang="ts">

@@ -3,15 +3,13 @@
 </demo>
 
 <template>
-<Input placeholder="请输入内容" v-model:value="text" @input="text=$event.target.value" />
-输入内容：{{text}}
+  <Input placeholder="请输入内容" v-model:value="text" />
+  输入内容：{{text}}
 </template>
 
 <script lang="ts">
 import Input from "../lib/input.vue";
-import {
-  ref
-} from "vue";
+import { ref } from "vue";
 export default {
   components: {
     Input,

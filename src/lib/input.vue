@@ -1,14 +1,32 @@
 <template>
-<div class="ui-input-wrapper">
-  <input v-if="icon" class="ui-input inputWithIcon" type="text" :value="value" :placeholder="placeholder" :disabled="disabled" :clearable="clearable" />
-  <input v-else class="ui-input" type="text" :value="value" :placeholder="placeholder" :disabled="disabled" :clearable="clearable" />
-  <svg v-if="icon" class="ui-icon" aria-hidden="true" @click="onClick">
-    <use :xlink:href="`#icon-${icon}`" />
-  </svg>
-  <svg v-if="clearable&&value" class="ui-icon ui-clearable" aria-hidden="true" @click="clear">
-    <use xlink:href="#icon-cha" />
-  </svg>
-</div>
+  <div class="ui-input-wrapper">
+    <input
+      v-if="icon"
+      class="ui-input inputWithIcon"
+      type="text"
+      :value="value"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :clearable="clearable"
+      @input="$emit('update:value',$event.target.value)"
+    />
+    <input
+      v-else
+      class="ui-input"
+      type="text"
+      :value="value"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :clearable="clearable"
+      @input="$emit('update:value',$event.target.value)"
+    />
+    <svg v-if="icon" class="ui-icon" aria-hidden="true" @click="onClick">
+      <use :xlink:href="`#icon-${icon}`" />
+    </svg>
+    <svg v-if="clearable&&value" class="ui-icon ui-clearable" aria-hidden="true" @click="clear">
+      <use xlink:href="#icon-cha" />
+    </svg>
+  </div>
 </template>
 
 <script lang="ts">
@@ -46,7 +64,7 @@ export default {
 .ui-input-wrapper {
   position: relative;
 
-  >.ui-input {
+  > .ui-input {
     height: 32px;
     border: 1px solid #d9d9d9;
     border-radius: 4px;
@@ -73,7 +91,7 @@ export default {
     }
   }
 
-  >.ui-icon {
+  > .ui-icon {
     position: absolute;
     z-index: 10;
     left: 8px;
