@@ -1,14 +1,15 @@
 <template>
 <div class="demo">
   <div class="demo-head">
-    <h2>{{component.__sourceCodeTitle}}</h2>
+    <h2>{{ component.__sourceCodeTitle }}</h2>
     <p v-html="explain"></p>
   </div>
   <div class="demo-component">
     <component :is="component" />
   </div>
   <div class="demo-actions">
-    <Button @click="toggleCode">查看代码</Button>
+    <Button @click="toggleCode" v-if="!codeVisible">查看代码</Button>
+    <Button @click="toggleCode" v-if="codeVisible">隐藏代码</Button>
   </div>
   <div class="demo-code" v-if="codeVisible">
     <pre class="language-html" v-html="html" />

@@ -1,11 +1,17 @@
 <template>
 <div class="ui-tabs">
   <div class="ui-tabs-nav" ref="container">
-    <div class="ui-tabs-nav-item" v-for="(t,index) in titles" :ref="el => {if(t===selected) selectedItem = el}" :key="index" @click="select(t)" :class="{selected:t===selected}">{{t}}</div>
+    <div class="ui-tabs-nav-item" v-for="(t, index) in titles" :ref="
+          (el) => {
+            if (t === selected) selectedItem = el;
+          }
+        " :key="index" @click="select(t)" :class="{ selected: t === selected }">
+      {{ t }}
+    </div>
     <div class="ui-tabs-nav-line" ref="line"></div>
   </div>
   <div class="ui-tabs-content">
-    <component class="ui-tabs-content-item" v-for="(c,index) in defaults" :is="c" :key="index" :class="{selected:c.props.title===selected}" />
+    <component class="ui-tabs-content-item" v-for="(c, index) in defaults" :is="c" :key="index" :class="{ selected: c.props.title === selected }" />
   </div>
 </div>
 </template>
@@ -32,20 +38,24 @@ export default {
     const line = ref < HTMLDivElement > (null);
     const container = ref < HTMLDivElement > (null);
     onMounted(() => {
-      watchEffect(() => {
-        const {
-          width
-        } = selectedItem.value.getBoundingClientRect();
-        line.value.style.width = width + 32 + "px";
-        const {
-          left: left1
-        } = container.value.getBoundingClientRect();
-        const {
-          left: left2
-        } = selectedItem.value.getBoundingClientRect();
-        const left = left2 - left1;
-        line.value.style.left = left - 16 + "px";
-      });
+      watchEffect(
+        () => {
+          const {
+            width
+          } = selectedItem.value.getBoundingClientRect();
+          line.value.style.width = width + 32 + "px";
+          const {
+            left: left1
+          } = container.value.getBoundingClientRect();
+          const {
+            left: left2
+          } = selectedItem.value.getBoundingClientRect();
+          const left = left2 - left1;
+          line.value.style.left = left - 16 + "px";
+        }, {
+          flush: "post"
+        }
+      );
     });
     return {
       defaults,
