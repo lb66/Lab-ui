@@ -11,7 +11,7 @@
   </router-link>
   <ul class="menu">
     <li>
-      <router-link to="/doc">文档</router-link>
+      <router-link to="/doc/start">文档</router-link>
     </li>
   </ul>
 </div>

@@ -3,7 +3,7 @@
 </demo>
 
 <template>
-<Button @click="open">普通提示</Button>
+<Button theme="primary" @click="open">普通提示</Button>
 <Toast v-model:visible="isVisible" autoClose :closeTime="1.5">这是一条会自动关闭的消息</Toast>
 </template>
 

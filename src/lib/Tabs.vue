@@ -43,17 +43,13 @@ export default {
           const {
             width
           } = selectedItem.value.getBoundingClientRect();
-          line.value.style.width = width + 32 + "px";
-          const {
-            left: left1
-          } = container.value.getBoundingClientRect();
-          const {
-            left: left2
-          } = selectedItem.value.getBoundingClientRect();
+          line.value.style.width = width + "px";
+          const left1 = container.value.getBoundingClientRect().left;
+          const left2 = selectedItem.value.getBoundingClientRect().left;
           const left = left2 - left1;
-          line.value.style.left = left - 16 + "px";
+          line.value.style.left = left + "px";
         }, {
-          flush: "post"
+          flush: "post",
         }
       );
     });
@@ -78,7 +74,7 @@ export default {
 
     &-item {
       padding: 8px 0;
-      margin: 0 28px 0 16px;
+      margin: 0 16px;
       cursor: pointer;
 
       &.selected {
