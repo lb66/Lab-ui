@@ -1,22 +1,21 @@
 <template>
 <div>
   <h1>Poptip 气泡提示</h1>
-  <Poptip>
-    <template v-slot:content>
-      <div>气泡提示</div>
-    </template>
-    <Button>点击</Button>
-  </Poptip>
+  <Card :component="Poptip1" explain="未完成" />
 </div>
 </template>
 
 <script lang="ts">
-import Poptip from "../lib/Poptip.vue";
-import Button from "../lib/Button.vue";
+import Card from "./Demo.vue";
+import Poptip1 from "./Poptip-1.vue";
 export default {
   components: {
-    Poptip,
-    Button,
+    Card,
+  },
+  setup() {
+    return {
+      Poptip1,
+    };
   },
 };
 </script>

@@ -1,14 +1,23 @@
-# 开始使用
-请先[安装](#/doc/install)本组件库。
+# 快速上手
+## 安装
+NPM安装：
 
-然后在main.js文件中导入样式
+```
+npm install lab-ui
+```
+
+或Yarn安装：
+
+```
+yarn add lab-ui
+```
+## 引入组件
+
+在main.js文件中导入样式
 ```
 import 'lab-ui/lib/ui.scss'
 ```
-
-
-
-## 按需引用
+### 按需引用
 手动引入需要的组件
 代码示例：
 

@@ -41,8 +41,9 @@ export default {
   vertical-align: top;
 
   >.content-wrapper {
+    z-index: 99;
     position: absolute;
-    bottom: 100%;
+    bottom: 120%;
     // left: 0;
     border-radius: 4px;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
