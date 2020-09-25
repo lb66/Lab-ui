@@ -1,46 +1,46 @@
 <template>
-  <div class="body-top">
-    <Topnav />
-    <div class="banner">
-      <div class="title">
-        <img src="/src/assets/title.png" />
-      </div>
-      <h2>一个UI框架</h2>
-      <div class="actions">
-        <a href="https://github.com/lb66/ui" target="_blank">GitHub</a>
-        <router-link to="/doc">开 始</router-link>
-      </div>
+<div class="body-top">
+  <Topnav />
+  <div class="banner">
+    <div class="title">
+      <img src="/src/assets/title.png" />
+    </div>
+    <h2>一个UI框架</h2>
+    <div class="actions">
+      <a href="https://github.com/lb66/Lab-ui" target="_blank">GitHub</a>
+      <router-link to="/doc">开 始</router-link>
     </div>
   </div>
-  <div class="body-bottom">
-    <div class="part">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-vue" />
-      </svg>
-      <div>
-        <h2>基于 Vue3</h2>
-        <p>使用了 Vue3 组合式 api</p>
-      </div>
-    </div>
-    <div class="part">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-ts" />
-      </svg>
-      <div>
-        <h2>基于 TypeScript</h2>
-        <p>源代码采用 TypeScript 书写</p>
-      </div>
-    </div>
-    <div class="part">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-light" />
-      </svg>
-      <div>
-        <h2>基于Vue3</h2>
-        <p>每个组件的代码简洁易读</p>
-      </div>
+</div>
+<div class="body-bottom">
+  <div class="part">
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#icon-vue" />
+    </svg>
+    <div>
+      <h2>基于 Vue3</h2>
+      <p>使用了 Vue3 组合式 api</p>
     </div>
   </div>
+  <div class="part">
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#icon-ts" />
+    </svg>
+    <div>
+      <h2>基于 TypeScript</h2>
+      <p>源代码采用 TypeScript 书写</p>
+    </div>
+  </div>
+  <div class="part">
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#icon-light" />
+    </svg>
+    <div>
+      <h2>基于Vue3</h2>
+      <p>每个组件的代码简洁易读</p>
+    </div>
+  </div>
+</div>
 </template>
 
 <script lang="ts">
@@ -56,17 +56,15 @@ export default {
 .body-top {
   color: #fff;
   background: rgb(255, 118, 112);
-  background: linear-gradient(
-    45deg,
-    rgba(255, 118, 112, 1) 0%,
-    rgba(255, 196, 115, 1) 100%
-  );
+  background: linear-gradient(45deg,
+      rgba(255, 118, 112, 1) 0%,
+      rgba(255, 196, 115, 1) 100%);
   clip-path: ellipse(80% 60% at 50% 40%);
 
-  > .banner {
+  >.banner {
     text-align: center;
 
-    > .title {
+    >.title {
       @media (max-width: 500px) {
         margin: 0 0 2vh 0;
       }
@@ -79,7 +77,7 @@ export default {
       overflow: hidden;
     }
 
-    > .actions {
+    >.actions {
       padding: 6vh 0 10vh 0;
       display: flex;
       justify-content: center;
@@ -116,8 +114,8 @@ export default {
     padding: 2vh 0 0 2vh;
   }
 
-  > .part {
-    > .icon {
+  >.part {
+    >.icon {
       width: 96px;
       height: 96px;
       margin-right: 10px;
