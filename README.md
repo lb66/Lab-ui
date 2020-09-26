@@ -1,5 +1,6 @@
 # Lab-ui
 [文档](https://lb1022.gitee.io/lab-ui-web)
+
 lab-ui 是一个基于Vue3和TypeScript的UI组件库。
 
 使用了Vue3的Composition API及其响应式系统API，即setup、ref、computed、watch、watchEffect、生命周期等API。
