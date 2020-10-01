@@ -5,8 +5,8 @@
 <template>
 <Button loading disabled>加载中</Button>
 
-<Button v-model:loading="loading1">
-  <span v-if="!loading1">点击我</span>
+<Button :loading="loading" @click="toLoading">
+  <span v-if="!loading">点击我</span>
   <span v-else>加载中</span>
 </Button>
 
@@ -26,10 +26,14 @@ export default {
     Button,
   },
   setup() {
-    const loading1 = ref(false);
+    const loading = ref(false);
     const loading2 = ref(false);
+    const toLoading = () => {
+      loading.value = true;
+    };
     return {
-      loading1,
+      loading,
+      toLoading,
       loading2,
     };
   },

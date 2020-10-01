@@ -103,6 +103,7 @@ aside {
 
       &:hover {
         color: #ff9401;
+        transition: color 0.3s;
       }
 
       .router-link-active {

@@ -2,3 +2,10 @@ node_modules
 .DS_Store
 /dist
 *.local
+
+# sh deploy.sh
+# rollup -c
+
+# 改版本号
+# nrm use npm
+# npm publish
