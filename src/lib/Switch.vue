@@ -1,5 +1,9 @@
 <template>
-<button class="ui-switch" :class="{'ui-checked':value}" @click="toggle">
+<button class="ui-switch" :class="{
+      'ui-checked': value,
+      'ui-large': size === 'large',
+      'ui-small': size === 'small',
+    }" @click="toggle">
   <span :class="theme"></span>
 </button>
 </template>
@@ -12,6 +16,7 @@ export default {
       default: "a",
     },
     value: Boolean,
+    size: String,
   },
   setup(props, context) {
     const toggle = () => {
@@ -36,6 +41,14 @@ export default {
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   cursor: pointer;
+
+  &.ui-large {
+    transform: scale(1.2);
+  }
+
+  &.ui-small {
+    transform: scale(0.8);
+  }
 
   &[disabled] {
     cursor: not-allowed;
