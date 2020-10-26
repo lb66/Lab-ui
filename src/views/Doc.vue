@@ -2,47 +2,49 @@
 <div>
   <Topnav toggleButtonVisible />
   <div class="content">
-    <aside v-if="asideVisible">
-      <h2>文档</h2>
-      <ol>
-        <li>
-          <router-link to="/doc/introduce">介绍</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/start">快速上手</router-link>
-        </li>
-      </ol>
-      <h2>组件</h2>
-      <ol>
-        <li>
-          <router-link to="/doc/switch">Switch 开关</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/button">Button 按钮</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/input">Input 输入框</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/dialog">Dialog 对话框</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/grid">Grid 栅格</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/toast">Toast 消息提示</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/tabs">Tabs 标签页</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/collapse">Collapse 折叠面板</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/poptip">Poptip 气泡提示</router-link>
-        </li>
-      </ol>
-    </aside>
+    <transition name="fade">
+      <aside v-if="asideVisible">
+        <h2>文档</h2>
+        <ol>
+          <li>
+            <router-link to="/doc/introduce">介绍</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/start">快速上手</router-link>
+          </li>
+        </ol>
+        <h2>组件</h2>
+        <ol>
+          <li>
+            <router-link to="/doc/switch">Switch 开关</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/button">Button 按钮</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/input">Input 输入框</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/dialog">Dialog 对话框</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/grid">Grid 栅格</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/toast">Toast 消息提示</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/tabs">Tabs 标签页</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/collapse">Collapse 折叠面板</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/poptip">Poptip 气泡提示</router-link>
+          </li>
+        </ol>
+      </aside>
+    </transition>
     <main>
       <router-view />
     </main>
@@ -135,5 +137,15 @@ main {
   @media (max-width: 500px) {
     left: 0;
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  transform: translateX(-500px);
 }
 </style>
