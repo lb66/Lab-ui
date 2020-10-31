@@ -1,19 +1,19 @@
 <demo>
-基础用法
+显示位置
 </demo>
 <template>
-<Poptip trigger='click'>
+<Poptip position="top">
   <template v-slot:content>
-    <div>气泡提示内容</div>
+    <div>上方气泡提示</div>
   </template>
-  <Button>click 激活</Button>
+  <Button>上方显示</Button>
 </Poptip>
 
-<Poptip trigger='hover'>
+<Poptip position="bottom">
   <template v-slot:content>
-    <div>气泡提示内容</div>
+    <div>下方气泡提示</div>
   </template>
-  <Button>hover 激活</Button>
+  <Button>下方显示</Button>
 </Poptip>
 </template>
 
